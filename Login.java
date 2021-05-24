@@ -14,10 +14,6 @@ public class Login extends JFrame implements ActionListener {
 	private JTextField campoTextoCapturaNombre;
 	private	JPasswordField campoContraseña;
 	private JButton botonIngresar;
-	//public static String nombreCapturado = "";
-
-	//ConexionSQL cc = new ConexionSQL();
-	//Connection con = cc.conexion();
 
 	public Login() {
 

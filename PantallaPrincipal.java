@@ -9,21 +9,19 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 	private JMenuBar barraMenu;
 	private JMenu menuOpciones, menuColorFondo, menuCalcular, menuAcerca;
 	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemNuevo, menuItemSalir, menuItemVacaciones, menuItemAutor;
-	private ImageIcon imagenCocaColaBlanco,imagenAutor;
-	private JLabel etiquetaImagenCocaColaBlanco, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaApellidoPaterno, etiquetaApellidoMaterno, etiquetaDepartamento, etiquetaAntiguedad, etiquetaCalculo, etiquetaMarcaAutor;
+	private ImageIcon imagenTicketBusNegra,imagenAutor;
+	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaApellidoPaterno, etiquetaApellidoMaterno, etiquetaDepartamento, etiquetaAntiguedad, etiquetaCalculo, etiquetaMarcaAutor;
 	private JTextField campoTextoNombres, campoTextoApellidoPaterno, campoTextoApellidoMaterno;
 	private JComboBox comboDepartamento, comboAntiguedad;
 	private JTextArea areaTextoCalculo;
-	//String nombreCapturadoJFrameBienvenido = "";
 
 	public PantallaPrincipal() {
 
 		setLayout(null);
-		setTitle("COCA-COLA Vacaciones APP");
+		setTitle("TicketBus APP");
 		getContentPane().setBackground(Color.RED);
 		setIconImage(new ImageIcon(getClass().getResource("images/icon.png")).getImage());
 		Login loginJFrame = new Login();
-		// nombreCapturadoJFrameBienvenido = loginJFrame.nombreCapturado;
 
 		barraMenu = new JMenuBar();
 		barraMenu.setBackground(Color.RED);
@@ -84,17 +82,17 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		menuAcerca.add(menuItemAutor);
 		imagenAutor = new ImageIcon("images/autor.png");
 
-		imagenCocaColaBlanco = new ImageIcon("images/logo-coca.png");
-		etiquetaImagenCocaColaBlanco = new JLabel(imagenCocaColaBlanco);
-		etiquetaImagenCocaColaBlanco.setBounds(15,10,250,125);
-		etiquetaImagenCocaColaBlanco.setBackground(Color.RED);
-		add(etiquetaImagenCocaColaBlanco);
+		imagenTicketBusNegra = new ImageIcon("images/logo1.png");
+		etiquetaImagenTicketBus = new JLabel(imagenTicketBusNegra);
+		etiquetaImagenTicketBus.setBounds(15,10,250,160);
+		etiquetaImagenTicketBus.setBackground(Color.RED);
+		add(etiquetaImagenTicketBus);
 
-//		etiquetaBienvenido = new JLabel("Bienvenido! " + nombreCapturadoJFrameBienvenido);
-//		etiquetaBienvenido.setFont(new Font("Andale Mono",1,22));
-//		etiquetaBienvenido.setForeground(Color.WHITE);
-//		etiquetaBienvenido.setBounds(300,23,280,100);
-//		add(etiquetaBienvenido);
+		etiquetaBienvenido = new JLabel("TicketBus©");
+		etiquetaBienvenido.setFont(new Font("Andale Mono",3,40));
+		etiquetaBienvenido.setForeground(Color.BLACK);
+		etiquetaBienvenido.setBounds(250,23,400,150);
+		add(etiquetaBienvenido);
 
 		etiquetaDatosTrabajador = new JLabel("Datos del trabajador para el cálculo de vacaciones");
 		etiquetaDatosTrabajador.setFont(new Font("Andale Mono",1,17));
@@ -200,7 +198,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		areaTextoCalculo.setForeground(Color.RED);
 		add(areaTextoCalculo);
 
-		etiquetaMarcaAutor = new JLabel("©2021 The COCA-COLA Company | Todos los derechos reservados by Kevo.THRASHER");
+		etiquetaMarcaAutor = new JLabel("©2021 The TicketBus Company | Todos los derechos reservados by ITSAL");
 		etiquetaMarcaAutor.setBounds(25,480,550,25);
 		etiquetaMarcaAutor.setFont(new Font("Hack",1,11));
 		etiquetaMarcaAutor.setForeground(Color.WHITE);
