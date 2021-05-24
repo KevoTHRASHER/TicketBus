@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 public class Login extends JFrame implements ActionListener {
 
@@ -10,10 +14,10 @@ public class Login extends JFrame implements ActionListener {
 	private JTextField campoTextoCapturaNombre;
 	private	JPasswordField campoContraseña;
 	private JButton botonIngresar;
-	public static String nombreCapturado = "";
+	//public static String nombreCapturado = "";
 
-	ConexionSQL cc = new ConexionSQL();
-	Connection con = cc.conexion();
+	//ConexionSQL cc = new ConexionSQL();
+	//Connection con = cc.conexion();
 
 	public Login() {
 
@@ -103,7 +107,7 @@ public class Login extends JFrame implements ActionListener {
 					pantallaPrincipalJFrame.setResizable(true);
 					pantallaPrincipalJFrame.setLocationRelativeTo(null);
 					pantallaPrincipalJFrame.setVisible(true);
-					this.dispose();
+as				this.dispose();
 
 				}
 			} else {
@@ -116,15 +120,39 @@ public class Login extends JFrame implements ActionListener {
 */
 
 	public void actionPerformed(ActionEvent ae) {
-		try {
-			Conection cn = DriverManager.getConnection("jdbc:mysql//localhost:3306/LoginTicket","root","123");
-			PreparedStatement pst = cn.prepareStatement(" select * from Usuarios where Usuario='"+usuario+"' and Contraseña='"+pass+"' ");
-
-		} catch (Exception e) {
-
+		if(ae.getSource() == botonIngresar) {
+			String nombreCapturado = campoTextoCapturaNombre.getText();
+			String Contraseña = campoContraseña.getText();
+			//String Contraseña = String.valueOf(campoContraseña.getPassword());
+			try {
+				Class.forName("org.mariadb.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginTicket", "root", "123");
+				Statement stm = con.createStatement();
+				String sql = "select * from LoginTicket.Usuarios where Usuario='"+nombreCapturado+"' and Contraseña='"+Contraseña+"'";
+				ResultSet rs = stm.executeQuery(sql);
+				
+				if(rs.next()) {
+					PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
+					pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					pantallaPrincipalJFrame.setBounds(0,0,580,560);
+					pantallaPrincipalJFrame.setResizable(true);
+					pantallaPrincipalJFrame.setLocationRelativeTo(null);	
+					pantallaPrincipalJFrame.setVisible(true);
+					pantallaPrincipalJFrame.show();
+				} else {
+					JOptionPane.showMessageDialog(this,"Usuario y Contraseña INCORRECTA");
+					campoTextoCapturaNombre.setText("");
+					campoContraseña.setText("");
+				}
+				con.close();
+			} catch(Exception e) {
+				JOptionPane.showMessageDialog(null,"e.getMessage()");
+				e.printStackTrace();
+				System.out.println(e);
+			}
 		}
 	}
-
+		
 	public static void main(String[] args) {
 
 		Login objLogin = new Login();

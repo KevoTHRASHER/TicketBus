@@ -14,7 +14,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 	private JTextField campoTextoNombres, campoTextoApellidoPaterno, campoTextoApellidoMaterno;
 	private JComboBox comboDepartamento, comboAntiguedad;
 	private JTextArea areaTextoCalculo;
-	String nombreCapturadoJFrameBienvenido = "";
+	//String nombreCapturadoJFrameBienvenido = "";
 
 	public PantallaPrincipal() {
 
@@ -23,7 +23,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		getContentPane().setBackground(Color.RED);
 		setIconImage(new ImageIcon(getClass().getResource("images/icon.png")).getImage());
 		Login loginJFrame = new Login();
-		nombreCapturadoJFrameBienvenido = loginJFrame.nombreCapturado;
+		// nombreCapturadoJFrameBienvenido = loginJFrame.nombreCapturado;
 
 		barraMenu = new JMenuBar();
 		barraMenu.setBackground(Color.RED);
@@ -90,11 +90,11 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		etiquetaImagenCocaColaBlanco.setBackground(Color.RED);
 		add(etiquetaImagenCocaColaBlanco);
 
-		etiquetaBienvenido = new JLabel("Bienvenido! " + nombreCapturadoJFrameBienvenido);
-		etiquetaBienvenido.setFont(new Font("Andale Mono",1,22));
-		etiquetaBienvenido.setForeground(Color.WHITE);
-		etiquetaBienvenido.setBounds(300,23,280,100);
-		add(etiquetaBienvenido);
+//		etiquetaBienvenido = new JLabel("Bienvenido! " + nombreCapturadoJFrameBienvenido);
+//		etiquetaBienvenido.setFont(new Font("Andale Mono",1,22));
+//		etiquetaBienvenido.setForeground(Color.WHITE);
+//		etiquetaBienvenido.setBounds(300,23,280,100);
+//		add(etiquetaBienvenido);
 
 		etiquetaDatosTrabajador = new JLabel("Datos del trabajador para el cálculo de vacaciones");
 		etiquetaDatosTrabajador.setFont(new Font("Andale Mono",1,17));
