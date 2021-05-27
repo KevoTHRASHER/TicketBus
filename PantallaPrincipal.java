@@ -3,17 +3,18 @@ import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.Font;
-
+import com.toedter.calendar.*;
 public class PantallaPrincipal extends JFrame implements ActionListener {
 
 	private JMenuBar barraMenu;
-	private JMenu menuOpciones, menuColorFondo, menuCalcular, menuAcerca;
-	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemNuevo, menuItemSalir, menuItemVacaciones, menuItemAutor;
+	private JMenu menuOpciones, menuColorFondo, menuUsuarios, menuAcerca;
+	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemNuevo, menuItemSalir, menuItemCreaUsuario, menuItemEliminaUsuario, menuItemAutor;
 	private ImageIcon imagenTicketBusNegra,imagenAutor;
-	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaApellidoPaterno, etiquetaApellidoMaterno, etiquetaDepartamento, etiquetaAntiguedad, etiquetaCalculo, etiquetaMarcaAutor;
+	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaApellidoPaterno, etiquetaApellidoMaterno, etiquetaLugarSalida, etiquetaLugarLlegada, etiquetaCalculo, etiquetaMarcaAutor;
 	private JTextField campoTextoNombres, campoTextoApellidoPaterno, campoTextoApellidoMaterno;
-	private JComboBox comboDepartamento, comboAntiguedad;
+	private JComboBox comboLugarSalida, comboLugarLlegada;
 	private JTextArea areaTextoCalculo;
+	private JCalendar calendarioSalida;
 
 	public PantallaPrincipal() {
 
@@ -61,15 +62,20 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		menuItemSalir.addActionListener(this);
 		menuOpciones.add(menuItemSalir);
 
-		menuCalcular = new JMenu("Calcular");
-		menuCalcular.setFont(new Font("Andale Mono",1,14));
-		menuCalcular.setForeground(Color.WHITE);
-		barraMenu.add(menuCalcular);
+		menuUsuarios = new JMenu("Usuarios");
+		menuUsuarios.setFont(new Font("Andale Mono",1,14));
+		menuUsuarios.setForeground(Color.WHITE);
+		barraMenu.add(menuUsuarios);
 
-		menuItemVacaciones = new JMenuItem("Vacaciones");
-		menuItemVacaciones.setForeground(Color.RED);
-		menuItemVacaciones.addActionListener(this);
-		menuCalcular.add(menuItemVacaciones);
+		menuItemCreaUsuario = new JMenuItem("Crear Usuario");
+		menuItemCreaUsuario.setForeground(Color.RED);
+		menuItemCreaUsuario.addActionListener(this);
+		menuUsuarios.add(menuItemCreaUsuario);
+
+		menuItemEliminaUsuario = new JMenuItem("Eliminar Usuario");
+		menuItemEliminaUsuario.setForeground(Color.RED);
+		menuItemEliminaUsuario.addActionListener(this);
+		menuUsuarios.add(menuItemEliminaUsuario);
 
 		menuAcerca = new JMenu("Acerca de");
 		menuAcerca.setFont(new Font("Andale Mono",1,14));
@@ -94,7 +100,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		etiquetaBienvenido.setBounds(250,23,400,150);
 		add(etiquetaBienvenido);
 
-		etiquetaDatosTrabajador = new JLabel("Datos del trabajador para el cálculo de vacaciones");
+		etiquetaDatosTrabajador = new JLabel("");
 		etiquetaDatosTrabajador.setFont(new Font("Andale Mono",1,17));
 		etiquetaDatosTrabajador.setForeground(Color.WHITE);
 		etiquetaDatosTrabajador.setBackground(Color.RED);
@@ -143,63 +149,76 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		campoTextoApellidoMaterno.setForeground(Color.RED);
 		add(campoTextoApellidoMaterno);
 
-		etiquetaDepartamento = new JLabel("Selecciona el Departamento");
-		etiquetaDepartamento.setBounds(220,200,225,25);
-		etiquetaDepartamento.setFont(new Font("Andale Mono",1,13));
-		etiquetaDepartamento.setForeground(Color.WHITE);
-		etiquetaDepartamento.setBackground(Color.RED);
-		etiquetaDepartamento.setOpaque(true);
-		add(etiquetaDepartamento);
+		etiquetaLugarSalida = new JLabel("Selecciona el lugar de SALIDA");
+		etiquetaLugarSalida.setBounds(220,200,250,25);
+		etiquetaLugarSalida.setFont(new Font("Andale Mono",1,13));
+		etiquetaLugarSalida.setForeground(Color.WHITE);
+		etiquetaLugarSalida.setBackground(Color.RED);
+		etiquetaLugarSalida.setOpaque(true);
+		add(etiquetaLugarSalida);
 
-		comboDepartamento = new JComboBox();
-		comboDepartamento.setBounds(220,230,225,25);
-		comboDepartamento.setFont(new Font("Andale Mono",1,14));
-		comboDepartamento.setForeground(Color.RED);
-		comboDepartamento.addActionListener(this);
-		add(comboDepartamento);
+		comboLugarSalida = new JComboBox();
+		comboLugarSalida.setBounds(220,230,250,25);
+		comboLugarSalida.setFont(new Font("Andale Mono",1,14));
+		comboLugarSalida.setForeground(Color.RED);
+		comboLugarSalida.addActionListener(this);
+		add(comboLugarSalida);
 
-		comboDepartamento.addItem("");
-		comboDepartamento.addItem("Atencion a Clientes");
-		comboDepartamento.addItem("Departamento Logística");
-		comboDepartamento.addItem("Departamento Gerencia");
+		comboLugarSalida.addItem("");
+		comboLugarSalida.addItem("Salina Cruz");
+		comboLugarSalida.addItem("Tehuantepec");
+		comboLugarSalida.addItem("Juchitan");
+		comboLugarSalida.addItem("Huatulco");
+		comboLugarSalida.addItem("Matías Romero");
+		comboLugarSalida.addItem("Oaxaca de Juárez");
 
-		etiquetaAntiguedad = new JLabel("Selecciona la Antiguedad");
-		etiquetaAntiguedad.setBounds(220,260,225,25);
-		etiquetaAntiguedad.setFont(new Font("Andale Mono",1,13));
-		etiquetaAntiguedad.setForeground(Color.WHITE);
-		etiquetaAntiguedad.setBackground(Color.RED);
-		etiquetaAntiguedad.setOpaque(true);
-		add(etiquetaAntiguedad);
+		etiquetaLugarLlegada = new JLabel("Selecciona el lugar de LLEGADA");
+		etiquetaLugarLlegada.setBounds(220,260,250,25);
+		etiquetaLugarLlegada.setFont(new Font("Andale Mono",1,13));
+		etiquetaLugarLlegada.setForeground(Color.WHITE);
+		etiquetaLugarLlegada.setBackground(Color.RED);
+		etiquetaLugarLlegada.setOpaque(true);
+		add(etiquetaLugarLlegada);
 
-		comboAntiguedad = new JComboBox();
-		comboAntiguedad.setBounds(220,290,225,25);
-		comboAntiguedad.setFont(new Font("Andale Mono",1,14));
-		comboAntiguedad.setForeground(Color.RED);
-		comboAntiguedad.addActionListener(this);
-		add(comboAntiguedad);
+		comboLugarLlegada = new JComboBox();
+		comboLugarLlegada.setBounds(220,290,250,25);
+		comboLugarLlegada.setFont(new Font("Andale Mono",1,14));
+		comboLugarLlegada.setForeground(Color.RED);
+		comboLugarLlegada.addActionListener(this);
+		add(comboLugarLlegada);
 
-		comboAntiguedad.addItem("");
-		comboAntiguedad.addItem("1 año de servicio");
-		comboAntiguedad.addItem("2 a 6 años de servicio");
-		comboAntiguedad.addItem("7 años o más de servicio");
+		comboLugarLlegada.addItem("");
+		comboLugarLlegada.addItem("Salina Cruz");
+		comboLugarLlegada.addItem("Tehuantepec");
+		comboLugarLlegada.addItem("Juchitan");
+		comboLugarLlegada.addItem("Huatulco");
+		comboLugarLlegada.addItem("Matías Romero");
+		comboLugarLlegada.addItem("Oaxaca de Juárez");
 
-		etiquetaCalculo = new JLabel("Resultado del Cálculo :");
-		etiquetaCalculo.setBounds(220,320,225,25);
+		etiquetaCalculo = new JLabel("JCalendar :");
+		etiquetaCalculo.setBounds(220,320,250,25);
 		etiquetaCalculo.setFont(new Font("Andale Mono",1,13));
 		etiquetaCalculo.setForeground(Color.WHITE);
 		etiquetaCalculo.setBackground(Color.RED);
 		etiquetaCalculo.setOpaque(true);
 		add(etiquetaCalculo);
 
-		areaTextoCalculo = new JTextArea();
+/*		areaTextoCalculo = new JTextArea();
 		areaTextoCalculo.setText("\n Aquí aparece el resultado del cálculo \n de las vacaciones.");
 		areaTextoCalculo.setBounds(220,350,290,100);
 		areaTextoCalculo.setFont(new Font("Andale Mono",1,13));
 		areaTextoCalculo.setForeground(Color.RED);
 		add(areaTextoCalculo);
+*/
+		calendarioSalida = new JCalendar();
+		calendarioSalida.setBounds(220,350,250,200);
+		calendarioSalida.setWeekOfYearVisible(false);
+		calendarioSalida.setMaxDayCharacters(1);
+		calendarioSalida.setTodayButtonVisible(true);
+		add(calendarioSalida);
 
 		etiquetaMarcaAutor = new JLabel("©2021 The TicketBus Company | Todos los derechos reservados by ITSAL");
-		etiquetaMarcaAutor.setBounds(25,480,550,25);
+		etiquetaMarcaAutor.setBounds(25,580,580,25);
 		etiquetaMarcaAutor.setFont(new Font("Hack",1,11));
 		etiquetaMarcaAutor.setForeground(Color.WHITE);
 		etiquetaMarcaAutor.setBackground(Color.RED);
@@ -217,8 +236,8 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			etiquetaApellidoPaterno.setBackground(Color.RED);
 			etiquetaApellidoMaterno.setBackground(Color.RED);
 			etiquetaMarcaAutor.setBackground(Color.RED);
-			etiquetaDepartamento.setBackground(Color.RED);
-			etiquetaAntiguedad.setBackground(Color.RED);
+			etiquetaLugarSalida.setBackground(Color.RED);
+			etiquetaLugarLlegada.setBackground(Color.RED);
 			etiquetaCalculo.setBackground(Color.RED);
 
 		}
@@ -229,8 +248,8 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			etiquetaApellidoPaterno.setBackground(new Color(102,0,153));
 			etiquetaApellidoMaterno.setBackground(new Color(102,0,153));
 			etiquetaMarcaAutor.setBackground(new Color(102,0,153));
-			etiquetaDepartamento.setBackground(new Color(102,0,153));
-			etiquetaAntiguedad.setBackground(new Color(102,0,153));
+			etiquetaLugarSalida.setBackground(new Color(102,0,153));
+			etiquetaLugarLlegada.setBackground(new Color(102,0,153));
 			etiquetaCalculo.setBackground(new Color(102,0,153));
 		}
 		if(ae.getSource() == menuItemNegro) {
@@ -240,8 +259,8 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			etiquetaApellidoPaterno.setBackground(Color.BLACK);
 			etiquetaApellidoMaterno.setBackground(Color.BLACK);
 			etiquetaMarcaAutor.setBackground(Color.BLACK);
-			etiquetaDepartamento.setBackground(Color.BLACK);
-			etiquetaAntiguedad.setBackground(Color.BLACK);
+			etiquetaLugarSalida.setBackground(Color.BLACK);
+			etiquetaLugarLlegada.setBackground(Color.BLACK);
 			etiquetaCalculo.setBackground(Color.BLACK);
 		}
 		if(ae.getSource() == menuItemNuevo) {
@@ -249,8 +268,8 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			campoTextoApellidoPaterno.setText("");
 			campoTextoApellidoMaterno.setText("");
 			areaTextoCalculo.setText("");
-			comboDepartamento.setSelectedIndex(0);
-			comboAntiguedad.setSelectedIndex(0);
+			comboLugarSalida.setSelectedIndex(0);
+			comboLugarLlegada.setSelectedIndex(0);
 		}
 		if(ae.getSource() == menuItemSalir) {
 			if(JOptionPane.showConfirmDialog(null,"Desea SALIR del PROGRAMA","CERRAR PROGRAMA",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
@@ -260,63 +279,11 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		if(ae.getSource() == menuItemAutor) {
 		JOptionPane.showMessageDialog(null,"Desarrollado por Kevo.THRASHER\nhttps://github.com/KevoTHRASHER","Autor",JOptionPane.INFORMATION_MESSAGE,imagenAutor);
 		}
-		if(ae.getSource() == menuItemVacaciones) {
-			if(campoTextoNombres.getText().length() == 0) {
-				JOptionPane.showMessageDialog(null,"Favor de INGRESAR sus NOMBRES","INGRESA NOMBRE",JOptionPane.WARNING_MESSAGE);
-			}
-			else if(campoTextoApellidoPaterno.getText().length() == 0) {
-				JOptionPane.showMessageDialog(null,"Favor de INGRESAR tu APELLIDO PATERNO","INGRESA APELLIDO PATERNO",JOptionPane.WARNING_MESSAGE);
-
-			}
-			else if(campoTextoApellidoMaterno.getText().length() == 0) {
-				JOptionPane.showMessageDialog(null,"Favor de INGRESAR tu APELLIDO MATERNO","INGRESA APELLIDO MATERNO",JOptionPane.WARNING_MESSAGE);
-
-			}
-			else if(comboDepartamento.getSelectedIndex() == 1) {
-				if(comboAntiguedad.getSelectedIndex() == 1) {
-					areaTextoCalculo.setText("Hola " + campoTextoNombres.getText() + " " + campoTextoApellidoPaterno.getText() + " " + campoTextoApellidoPaterno.getText() + "\ndisfruta tus 6 días de vacaciones\nCOCA-COLA te agradece mucho tu trabajo");
-				}
-				else if(comboAntiguedad.getSelectedIndex() == 2) {
-					areaTextoCalculo.setText("Hola " + campoTextoNombres.getText() + " " + campoTextoApellidoPaterno.getText() + " " + campoTextoApellidoPaterno.getText() + "\ndisfruta tus 14 días de vacaciones\nCOCA-COLA te agradece mucho tu trabajo");
-				}
-				else if(comboAntiguedad.getSelectedIndex() == 3) {
-					areaTextoCalculo.setText("Hola " + campoTextoNombres.getText() + " " + campoTextoApellidoPaterno.getText() + " " + campoTextoApellidoPaterno.getText() + "\ndisfruta tus 20 días de vacaciones\nCOCA-COLA te agradece mucho tu trabajo");
-				}
-				else {
-					JOptionPane.showMessageDialog(null,"Favor de SELECCIONAR el numero de años laborados ANTIGUEDAD","ESCOGE ANTIGUEDAD",JOptionPane.WARNING_MESSAGE);
-				}
-			}
-			else if(comboDepartamento.getSelectedIndex() == 2) {
-				if(comboAntiguedad.getSelectedIndex() == 1) {
-					areaTextoCalculo.setText("Hola " + campoTextoNombres.getText() + " " + campoTextoApellidoPaterno.getText() + " " + campoTextoApellidoPaterno.getText() + "\ndisfruta tus 7 días de vacaciones\nCOCA-COLA te agradece mucho tu trabajo");
-				}
-				else if(comboAntiguedad.getSelectedIndex() == 2) {
-					areaTextoCalculo.setText("Hola " + campoTextoNombres.getText() + " " + campoTextoApellidoPaterno.getText() + " " + campoTextoApellidoPaterno.getText() + "\ndisfruta tus 15 días de vacaciones\nCOCA-COLA te agradece mucho tu trabajo");
-				}
-				else if(comboAntiguedad.getSelectedIndex() == 3) {
-					areaTextoCalculo.setText("Hola " + campoTextoNombres.getText() + " " + campoTextoApellidoPaterno.getText() + " " + campoTextoApellidoPaterno.getText() + "\ndisfruta tus 22 días de vacaciones\nCOCA-COLA te agradece mucho tu trabajo");
-				}
-				else {
-					JOptionPane.showMessageDialog(null,"Favor de SELECCIONAR el numero de años laborados ANTIGUEDAD","ESCOGE ANTIGUEDAD",JOptionPane.WARNING_MESSAGE);
-				}
-			}
-			else if(comboDepartamento.getSelectedIndex() == 3) {
-				if(comboAntiguedad.getSelectedIndex() == 1) {
-					areaTextoCalculo.setText("Hola " + campoTextoNombres.getText() + " " + campoTextoApellidoPaterno.getText() + " " + campoTextoApellidoPaterno.getText() + "\ndisfruta tus 10 días de vacaciones\nCOCA-COLA te agradece mucho tu trabajo");
-				}
-				else if(comboAntiguedad.getSelectedIndex() == 2) {
-					areaTextoCalculo.setText("Hola " + campoTextoNombres.getText() + " " + campoTextoApellidoPaterno.getText() + " " + campoTextoApellidoPaterno.getText() + "\ndisfruta tus 20 días de vacaciones\nCOCA-COLA te agradece mucho tu trabajo");
-				}
-				else if(comboAntiguedad.getSelectedIndex() == 3) {
-					areaTextoCalculo.setText("Hola " + campoTextoNombres.getText() + " " + campoTextoApellidoPaterno.getText() + " " + campoTextoApellidoPaterno.getText() + "\ndisfruta tus 30 días de vacaciones\nCOCA-COLA te agradece mucho tu trabajo");
-				}
-				else {
-					JOptionPane.showMessageDialog(null,"Favor de SELECCIONAR el numero de años laborados ANTIGUEDAD","ESCOGE ANTIGUEDAD",JOptionPane.WARNING_MESSAGE);
-				}
-			}
-			else {
-				JOptionPane.showMessageDialog(null,"Favor de SELECCIONAR el DEPARTAMENTO en el que LABORAS","ESCOGE DEPARTAMENTO",JOptionPane.WARNING_MESSAGE);
-			}
+		if(ae.getSource() == menuItemCreaUsuario) {
+			JOptionPane.showMessageDialog(null,"Seleccionaste el item Crea Usuario en el Menu USUARIO");
+		}
+		if(ae.getSource() == menuItemEliminaUsuario) {
+			JOptionPane.showMessageDialog(null,"Seleccionaste el item Elimina Usuario en el Menu USUARIO");
 		}
 	}
 
@@ -324,7 +291,8 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 
 		PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
 		pantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pantallaPrincipal.setBounds(0,0,580,560);
+		pantallaPrincipal.setBounds(0,0,620,620);
+//		pantallaPrincipal.setBounds(0,0,620,560);
 		pantallaPrincipal.setResizable(true);
 		pantallaPrincipal.setLocationRelativeTo(null);
 		pantallaPrincipal.setVisible(true);
