@@ -74,7 +74,7 @@ public class Login extends JFrame implements ActionListener {
 		botonIngresar.addActionListener(this);
 		add(botonIngresar);
 
-		etiquetaMarcaRegistrada = new JLabel("©2021 The TicketBus Company by ITSAL.");
+		etiquetaMarcaRegistrada = new JLabel("©2021 The TicketBus by Gabriela Ita-ii.");
 		etiquetaMarcaRegistrada.setFont(new Font("Hack",1,12));
 		etiquetaMarcaRegistrada.setBounds(10,405,320,25);
 		etiquetaMarcaRegistrada.setForeground(Color.WHITE);

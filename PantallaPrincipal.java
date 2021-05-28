@@ -4,16 +4,16 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.Font;
 import com.toedter.calendar.*;
+
 public class PantallaPrincipal extends JFrame implements ActionListener {
 
 	private JMenuBar barraMenu;
 	private JMenu menuOpciones, menuColorFondo, menuUsuarios, menuAcerca;
 	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemNuevo, menuItemSalir, menuItemCreaUsuario, menuItemEliminaUsuario, menuItemAutor;
 	private ImageIcon imagenTicketBusNegra,imagenAutor;
-	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaApellidoPaterno, etiquetaApellidoMaterno, etiquetaLugarSalida, etiquetaLugarLlegada, etiquetaCalculo, etiquetaMarcaAutor;
+	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaApellidoPaterno, etiquetaApellidoMaterno, etiquetaLugarSalida, etiquetaLugarLlegada, etiquetaCalendar, etiquetaMarcaAutor;
 	private JTextField campoTextoNombres, campoTextoApellidoPaterno, campoTextoApellidoMaterno;
 	private JComboBox comboLugarSalida, comboLugarLlegada;
-	private JTextArea areaTextoCalculo;
 	private JCalendar calendarioSalida;
 
 	public PantallaPrincipal() {
@@ -86,7 +86,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		menuItemAutor.setForeground(Color.RED);
 		menuItemAutor.addActionListener(this);
 		menuAcerca.add(menuItemAutor);
-		imagenAutor = new ImageIcon("images/autor.png");
+		imagenAutor = new ImageIcon("images/Gaby.png");
 
 		imagenTicketBusNegra = new ImageIcon("images/logo1.png");
 		etiquetaImagenTicketBus = new JLabel(imagenTicketBusNegra);
@@ -195,21 +195,14 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		comboLugarLlegada.addItem("Matías Romero");
 		comboLugarLlegada.addItem("Oaxaca de Juárez");
 
-		etiquetaCalculo = new JLabel("JCalendar :");
-		etiquetaCalculo.setBounds(220,320,250,25);
-		etiquetaCalculo.setFont(new Font("Andale Mono",1,13));
-		etiquetaCalculo.setForeground(Color.WHITE);
-		etiquetaCalculo.setBackground(Color.RED);
-		etiquetaCalculo.setOpaque(true);
-		add(etiquetaCalculo);
+		etiquetaCalendar = new JLabel("JCalendar :");
+		etiquetaCalendar.setBounds(220,320,250,25);
+		etiquetaCalendar.setFont(new Font("Andale Mono",1,13));
+		etiquetaCalendar.setForeground(Color.WHITE);
+		etiquetaCalendar.setBackground(Color.RED);
+		etiquetaCalendar.setOpaque(true);
+		add(etiquetaCalendar);
 
-/*		areaTextoCalculo = new JTextArea();
-		areaTextoCalculo.setText("\n Aquí aparece el resultado del cálculo \n de las vacaciones.");
-		areaTextoCalculo.setBounds(220,350,290,100);
-		areaTextoCalculo.setFont(new Font("Andale Mono",1,13));
-		areaTextoCalculo.setForeground(Color.RED);
-		add(areaTextoCalculo);
-*/
 		calendarioSalida = new JCalendar();
 		calendarioSalida.setBounds(220,350,250,200);
 		calendarioSalida.setWeekOfYearVisible(false);
@@ -217,7 +210,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		calendarioSalida.setTodayButtonVisible(true);
 		add(calendarioSalida);
 
-		etiquetaMarcaAutor = new JLabel("©2021 The TicketBus Company | Todos los derechos reservados by ITSAL");
+		etiquetaMarcaAutor = new JLabel("©2021 The TicketBus Company | Derechos Reservados by Gabriela Ita-ii");
 		etiquetaMarcaAutor.setBounds(25,580,580,25);
 		etiquetaMarcaAutor.setFont(new Font("Hack",1,11));
 		etiquetaMarcaAutor.setForeground(Color.WHITE);
@@ -238,7 +231,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			etiquetaMarcaAutor.setBackground(Color.RED);
 			etiquetaLugarSalida.setBackground(Color.RED);
 			etiquetaLugarLlegada.setBackground(Color.RED);
-			etiquetaCalculo.setBackground(Color.RED);
+			etiquetaCalendar.setBackground(Color.RED);
 
 		}
 		if(ae.getSource() == menuItemMorado) {
@@ -250,7 +243,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			etiquetaMarcaAutor.setBackground(new Color(102,0,153));
 			etiquetaLugarSalida.setBackground(new Color(102,0,153));
 			etiquetaLugarLlegada.setBackground(new Color(102,0,153));
-			etiquetaCalculo.setBackground(new Color(102,0,153));
+			etiquetaCalendar.setBackground(new Color(102,0,153));
 		}
 		if(ae.getSource() == menuItemNegro) {
 			getContentPane().setBackground(Color.BLACK);
@@ -261,13 +254,12 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			etiquetaMarcaAutor.setBackground(Color.BLACK);
 			etiquetaLugarSalida.setBackground(Color.BLACK);
 			etiquetaLugarLlegada.setBackground(Color.BLACK);
-			etiquetaCalculo.setBackground(Color.BLACK);
+			etiquetaCalendar.setBackground(Color.BLACK);
 		}
 		if(ae.getSource() == menuItemNuevo) {
 			campoTextoNombres.setText("");
 			campoTextoApellidoPaterno.setText("");
 			campoTextoApellidoMaterno.setText("");
-			areaTextoCalculo.setText("");
 			comboLugarSalida.setSelectedIndex(0);
 			comboLugarLlegada.setSelectedIndex(0);
 		}
@@ -277,7 +269,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			}
 		}
 		if(ae.getSource() == menuItemAutor) {
-		JOptionPane.showMessageDialog(null,"Desarrollado por Kevo.THRASHER\nhttps://github.com/KevoTHRASHER","Autor",JOptionPane.INFORMATION_MESSAGE,imagenAutor);
+		JOptionPane.showMessageDialog(null,"Desarrollado por \nGabriela Ita-ii","Autor",JOptionPane.INFORMATION_MESSAGE,imagenAutor);
 		}
 		if(ae.getSource() == menuItemCreaUsuario) {
 			JOptionPane.showMessageDialog(null,"Seleccionaste el item Crea Usuario en el Menu USUARIO");
