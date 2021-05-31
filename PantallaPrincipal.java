@@ -1,4 +1,4 @@
-import javax.swing.*;
+ise de datos mport javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,7 +9,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 
 	private JMenuBar barraMenu;
 	private JMenu menuOpciones, menuColorFondo, menuUsuarios, menuAcerca;
-	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemNuevo, menuItemSalir, menuItemCreaUsuario, menuItemEliminaUsuario, menuItemAutor;
+	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemNuevo, menuItemSalir, menuItemAgregarUsuario, menuItemEliminarUsuario, menuItemAutor;
 	private ImageIcon imagenTicketBusNegra,imagenAutor;
 	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaApellidoPaterno, etiquetaApellidoMaterno, etiquetaLugarSalida, etiquetaLugarLlegada, etiquetaCalendar, etiquetaMarcaAutor;
 	private JTextField campoTextoNombres, campoTextoApellidoPaterno, campoTextoApellidoMaterno;
@@ -67,15 +67,15 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		menuUsuarios.setForeground(Color.WHITE);
 		barraMenu.add(menuUsuarios);
 
-		menuItemCreaUsuario = new JMenuItem("Crear Usuario");
-		menuItemCreaUsuario.setForeground(Color.RED);
-		menuItemCreaUsuario.addActionListener(this);
-		menuUsuarios.add(menuItemCreaUsuario);
+		menuItemAgregarUsuario = new JMenuItem("Agrega Usuario");
+		menuItemAgregarUsuario.setForeground(Color.RED);
+		menuItemAgregarUsuario.addActionListener(this);
+		menuUsuarios.add(menuItemAgregarUsuario);
 
-		menuItemEliminaUsuario = new JMenuItem("Eliminar Usuario");
-		menuItemEliminaUsuario.setForeground(Color.RED);
-		menuItemEliminaUsuario.addActionListener(this);
-		menuUsuarios.add(menuItemEliminaUsuario);
+		menuItemEliminarUsuario = new JMenuItem("Eliminar Usuario");
+		menuItemEliminarUsuario.setForeground(Color.RED);
+		menuItemEliminarUsuario.addActionListener(this);
+		menuUsuarios.add(menuItemEliminarUsuario);
 
 		menuAcerca = new JMenu("Acerca de");
 		menuAcerca.setFont(new Font("Andale Mono",1,14));
@@ -271,11 +271,23 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		if(ae.getSource() == menuItemAutor) {
 		JOptionPane.showMessageDialog(null,"Desarrollado por \nGabriela Ita-ii","Autor",JOptionPane.INFORMATION_MESSAGE,imagenAutor);
 		}
-		if(ae.getSource() == menuItemCreaUsuario) {
-			JOptionPane.showMessageDialog(null,"Seleccionaste el item Crea Usuario en el Menu USUARIO");
+		if(ae.getSource() == menuItemAgregarUsuario) {
+			this.dispose();
+			PantallaAgregarUsuario objPantallaAgregarUsuario = new PantallaAgregarUsuario();
+			objPantallaAgregarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			objPantallaAgregarUsuario.setBounds(0,0,340,450);
+			objPantallaAgregarUsuario.setResizable(true);
+			objPantallaAgregarUsuario.setLocationRelativeTo(null);
+			objPantallaAgregarUsuario.setVisible(true);
 		}
-		if(ae.getSource() == menuItemEliminaUsuario) {
-			JOptionPane.showMessageDialog(null,"Seleccionaste el item Elimina Usuario en el Menu USUARIO");
+		if(ae.getSource() == menuItemEliminarUsuario) {
+			this.dispose();
+			PantallaEliminarUsuario objPantallaEliminarUsuario = new PantallaEliminarUsuario();
+			objPantallaEliminarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			objPantallaEliminarUsuario.setBounds(0,0,340,450);
+			objPantallaEliminarUsuario.setResizable(true);
+			objPantallaEliminarUsuario.setLocationRelativeTo(null);
+			objPantallaEliminarUsuario.setVisible(true);
 		}
 	}
 

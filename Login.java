@@ -83,7 +83,8 @@ public class Login extends JFrame implements ActionListener {
 
 	}
 	
-	/*public void validarUsuario() {
+/*
+	public void validarUsuario() {
 		int resultado = 0;
 		String pass = String.valueOf(campoContraseña.getPassword());
 		String usuario = campoTextoCapturaNombre.getText();
@@ -124,10 +125,11 @@ as				this.dispose();
 				Class.forName("org.mariadb.jdbc.Driver");
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginTicket", "root", "123");
 				Statement stm = con.createStatement();
-				String sql = "select * from LoginTicket.Usuarios where Usuario='"+nombreCapturado+"' and Contraseña='"+Contraseña+"'";
+				String sql = "SELECT * FROM LoginTicket.Usuarios WHERE Usuario='"+nombreCapturado+"' and Contraseña='"+Contraseña+"'";
 				ResultSet rs = stm.executeQuery(sql);
 				
 				if(rs.next()) {
+					this.dispose();
 					PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
 					pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					pantallaPrincipalJFrame.setBounds(0,0,580,560);
