@@ -1,3 +1,8 @@
 ####	Ticket Bus App	####
 
-App write in JAVA Language with SQL in MySQL.
+CRUD App write in JAVA Language with SQL in MariaDB.
+
+
+# Compilation
+
+In these case i use two libraries, one for connect Java with MariaDB
