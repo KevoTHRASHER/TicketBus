@@ -11,3 +11,5 @@ VALUES
     ('miguel@hotmail.com', 'miguel123');
 
 SELECT * FROM LoginTicket.Usuarios WHERE Usuario='gaby@gmail.com' and Contraseña='gaby123';
+
+DELETE from LoginTicket.Usuarios WHERE idUsuarios=9

@@ -119,26 +119,56 @@ as				this.dispose();
 			String nombreCapturado = campoTextoCapturaNombre.getText();
 			String Contraseña = campoContraseña.getText();
 			//String Contraseña = String.valueOf(campoContraseña.getPassword());
-			try {
-				Class.forName("org.mariadb.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginTicket", "root", "123");
-				Statement stm = con.createStatement();
-				String sql = "DELETE FROM Usuarios WHERE Usuario='"+nombreCapturado+"' AND Contraseña='"+Contraseña+"'";
-				stm.executeUpdate(sql);
-
-				dispose();
-				PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
-				pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				pantallaPrincipalJFrame.setBounds(0,0,580,560);
-				pantallaPrincipalJFrame.setResizable(true);
-				pantallaPrincipalJFrame.setLocationRelativeTo(null);	
-				pantallaPrincipalJFrame.setVisible(true);
-				pantallaPrincipalJFrame.show();
-				con.close();
-
-			} catch(Exception e) {
-				System.out.println(e.getMessage());
+			if(nombreCapturado.isEmpty() == true) {
+				JOptionPane.showMessageDialog(null,"Campo Usuario Vacío","ERROR Campo Usuario Vacio",JOptionPane.ERROR_MESSAGE);
 			}
+			else if (Contraseña.isEmpty() ==true) {
+				JOptionPane.showMessageDialog(null,"Campo Contraseña Vacio","ERROR Campo Contraseña Vacío",JOptionPane.ERROR_MESSAGE);
+			}
+			else if(nombreCapturado.isEmpty() == true && Contraseña.isEmpty() == true) {
+				JOptionPane.showMessageDialog(null,"Introduce Usuario y Contraseña","ERROR Campos Vacíos",JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				try {
+					Class.forName("org.mariadb.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/LoginTicket", "root", "123");
+					Statement stm = con.createStatement();
+					String sql = "DELETE FROM Usuarios WHERE Usuario='"+nombreCapturado+"' AND Contraseña='"+Contraseña+"'";
+					stm.executeUpdate(sql);
+
+					dispose();
+					PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
+					pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					pantallaPrincipalJFrame.setBounds(1,0,580,560);
+					pantallaPrincipalJFrame.setResizable(true);
+					pantallaPrincipalJFrame.setLocationRelativeTo(null);	
+					pantallaPrincipalJFrame.setVisible(true);
+					pantallaPrincipalJFrame.show();
+					con.close();
+				} catch(Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+//			try {
+//				Class.forName("org.mariadb.jdbc.Driver");
+//				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/LoginTicket", "root", "123");
+//				Statement stm = con.createStatement();
+//				String sql = "DELETE FROM Usuarios WHERE Usuario='"+nombreCapturado+"' AND Contraseña='"+Contraseña+"'";
+//				stm.executeUpdate(sql);
+//
+//				dispose();
+//				PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
+//				pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//				pantallaPrincipalJFrame.setBounds(1,0,580,560);
+//				pantallaPrincipalJFrame.setResizable(true);
+//				pantallaPrincipalJFrame.setLocationRelativeTo(null);	
+//				pantallaPrincipalJFrame.setVisible(true);
+//				pantallaPrincipalJFrame.show();
+//				con.close();
+//
+//			} catch(Exception e) {
+//				System.out.println(e.getMessage());
+//			}
 		}
 	}
 

@@ -119,26 +119,59 @@ as				this.dispose();
 			String nombreCapturado = campoTextoCapturaNombre.getText();
 			String Contraseña = campoContraseña.getText();
 			//String Contraseña = String.valueOf(campoContraseña.getPassword());
-			try {
-				Class.forName("org.mariadb.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginTicket", "root", "123");
-				Statement stm = con.createStatement();
-				String sql = "INSERT INTO Usuarios (Usuario, Contraseña) VALUES ('"+nombreCapturado+"','"+Contraseña+"')";
-				stm.executeUpdate(sql);
-
-				dispose();
-				PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
-				pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				pantallaPrincipalJFrame.setBounds(0,0,580,560);
-				pantallaPrincipalJFrame.setResizable(true);
-				pantallaPrincipalJFrame.setLocationRelativeTo(null);	
-				pantallaPrincipalJFrame.setVisible(true);
-				pantallaPrincipalJFrame.show();
-				con.close();
-
-			} catch(Exception e) {
-				System.out.println(e.getMessage());
+//			try {
+			if (nombreCapturado.isEmpty() == true ){
+				JOptionPane.showMessageDialog(null,"Campo Usuario Vacio TECLEA tu nombre","ERROR Campo Usuario Vacio",JOptionPane.ERROR_MESSAGE);
 			}
+			else if (Contraseña.isEmpty() == true){
+				JOptionPane.showMessageDialog(null,"Campo Contraseña TECLEA tu nombre","ERROR Campo Contraseña Vacio",JOptionPane.ERROR_MESSAGE);
+			}
+			else if (nombreCapturado.isEmpty() == true && Contraseña.isEmpty() == true) {
+				JOptionPane.showMessageDialog(null,"Introduce Usuario y Contraseña","ERROR Campos Vacios",JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				try {
+					Class.forName("org.mariadb.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginTicket", "root", "123");
+					Statement stm = con.createStatement();
+					String sql = "INSERT INTO Usuarios (Usuario, Contraseña) VALUES ('"+nombreCapturado+"','"+Contraseña+"')";
+					stm.executeUpdate(sql);
+					
+					dispose();
+					PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
+					pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					pantallaPrincipalJFrame.setBounds(0,0,580,560);
+					pantallaPrincipalJFrame.setResizable(true);
+					pantallaPrincipalJFrame.setLocationRelativeTo(null);	
+					pantallaPrincipalJFrame.setVisible(true);
+					pantallaPrincipalJFrame.show();
+					con.close();
+
+				} catch(Exception e) {
+					System.out.println(e.getMessage());
+				}
+
+			}
+
+//				Class.forName("org.mariadb.jdbc.Driver");
+//				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginTicket", "root", "123");
+//				Statement stm = con.createStatement();
+//				String sql = "INSERT INTO Usuarios (Usuario, Contraseña) VALUES ('"+nombreCapturado+"','"+Contraseña+"')";
+//				stm.executeUpdate(sql);
+//
+//				dispose();
+//				PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
+//				pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//				pantallaPrincipalJFrame.setBounds(0,0,580,560);
+//				pantallaPrincipalJFrame.setResizable(true);
+//				pantallaPrincipalJFrame.setLocationRelativeTo(null);	
+//				pantallaPrincipalJFrame.setVisible(true);
+//				pantallaPrincipalJFrame.show();
+//				con.close();
+//
+//			} catch(Exception e) {
+//				System.out.println(e.getMessage());
+//			}
 		}
 	}
 
