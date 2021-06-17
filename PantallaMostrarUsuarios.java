@@ -9,11 +9,10 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 
 	private JMenuBar barraMenu;
 	private JMenu menuOpciones, menuColorFondo, menuUsuarios, menuAcerca;
-	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemNuevo, menuItemSalir, menuItemAgregarUsuario, menuItemEliminarUsuario, menuItemAutor;
+	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemPantallaPrincipal, menuItemSalir, menuItemAgregarUsuario, menuItemEliminarUsuario, menuItemAutor;
 	private ImageIcon imagenTicketBusNegra,imagenAutor;
-	private JLabel etiquetaImagenTicketBus, etiquetaMarcaAutor;
+	private JLabel etiquetaImagenTicketBus, etiquetaMarcaAutor, etiquetaBienvenido;
 	private JButton botonAgregarUsuario,botonEliminarUsuario, botonEditarUsuario, botonConsultarUsuario, botonSalir;
-	private JTextField campoTextoNombres, campoTextoApellidoPaterno, campoTextoApellidoMaterno;
 
 	public PantallaMostrarUsuarios() {
 
@@ -51,10 +50,10 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 		menuItemNegro.addActionListener(this);
 		menuColorFondo.add(menuItemNegro);
 
-		menuItemNuevo = new JMenuItem("Nuevo");
-		menuItemNuevo.setForeground(Color.RED);
-		menuItemNuevo.addActionListener(this);
-		menuOpciones.add(menuItemNuevo);
+		menuItemPantallaPrincipal = new JMenuItem("Pantalla Principal");
+		menuItemPantallaPrincipal.setForeground(Color.RED);
+		menuItemPantallaPrincipal.addActionListener(this);
+		menuOpciones.add(menuItemPantallaPrincipal);
 
 		menuItemSalir = new JMenuItem("Salir");
 		menuItemSalir.setForeground(Color.RED);
@@ -99,102 +98,42 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 		etiquetaBienvenido.setBounds(250,23,400,150);
 		add(etiquetaBienvenido);
 
-		etiquetaDatosTrabajador = new JLabel("");
-		etiquetaDatosTrabajador.setFont(new Font("Andale Mono",1,17));
-		etiquetaDatosTrabajador.setForeground(Color.WHITE);
-		etiquetaDatosTrabajador.setBackground(Color.RED);
-		etiquetaDatosTrabajador.setBounds(50,130,480,50);
-		add(etiquetaDatosTrabajador);
+		botonAgregarUsuario = new JButton("AGREGAR");
+		botonAgregarUsuario.setFont(new Font("Andale Mono",1,14));
+		botonAgregarUsuario.setForeground(Color.WHITE);
+		botonAgregarUsuario.setBackground(Color.BLUE);
+		botonAgregarUsuario.setBounds(30,200,150,25);
+		add(botonAgregarUsuario);
 
-		etiquetaNombres = new JLabel("Nombre :");
-		etiquetaNombres.setBounds(30,200,150,25);
-		etiquetaNombres.setFont(new Font("Andale Mono",1,13));
-		etiquetaNombres.setForeground(Color.WHITE);
-		etiquetaNombres.setBackground(Color.RED);
-		etiquetaNombres.setOpaque(true);
-		add(etiquetaNombres);
+		botonEliminarUsuario = new JButton("ELIMINAR");
+		botonEliminarUsuario.setFont(new Font("Andale Mono",1,14));
+		botonEliminarUsuario.setForeground(Color.WHITE);
+		botonEliminarUsuario.setBackground(Color.BLUE);
+		botonEliminarUsuario.setBounds(30,260,150,25);
+		add(botonEliminarUsuario);
 
-		campoTextoNombres = new JTextField();
-		campoTextoNombres.setBounds(30,230,150,25);
-		campoTextoNombres.setFont(new Font("Andale Mono",1,14));
-		campoTextoNombres.setForeground(Color.RED);
-		add(campoTextoNombres);
+		botonEditarUsuario = new JButton("EDITAR");
+		botonEditarUsuario.setFont(new Font("Andale Mono",1,14));
+		botonEditarUsuario.setForeground(Color.WHITE);
+		botonEditarUsuario.setBackground(Color.BLUE);
+		botonEditarUsuario.setBounds(30,320,150,25);
+		add(botonEditarUsuario);
 
-		etiquetaApellidoPaterno = new JLabel("Apellido Paterno :");
-		etiquetaApellidoPaterno.setBounds(30,260,150,25);
-		etiquetaApellidoPaterno.setFont(new Font("Andale Mono",1,13));
-		etiquetaApellidoPaterno.setForeground(Color.WHITE);
-		etiquetaApellidoPaterno.setBackground(Color.RED);
-		etiquetaApellidoPaterno.setOpaque(true);
-		add(etiquetaApellidoPaterno);
+		botonConsultarUsuario = new JButton("Consultar");
+		botonConsultarUsuario.setFont(new Font("Andale Mono",1,14));
+		botonConsultarUsuario.setForeground(Color.WHITE);
+		botonConsultarUsuario.setBackground(Color.BLUE);
+		botonConsultarUsuario.setBounds(220,200,250,25);
+		add(botonConsultarUsuario);
 
-		campoTextoApellidoPaterno = new JTextField();
-		campoTextoApellidoPaterno.setBounds(30,290,150,25);
-		campoTextoApellidoPaterno.setFont(new Font("Andale Mono",1,14));
-		campoTextoApellidoPaterno.setForeground(Color.RED);
-		add(campoTextoApellidoPaterno);
+		botonSalir = new JButton("SALIR");
+		botonSalir.setFont(new Font("Andale Mono",1,14));
+		botonSalir.setForeground(Color.WHITE);
+		botonSalir.setBackground(Color.BLUE);
+		botonSalir.setBounds(220,260,250,25);
+		add(botonSalir);
 
-		etiquetaApellidoMaterno = new JLabel("Apellido Materno :");
-		etiquetaApellidoMaterno.setBounds(30,320,150,25);
-		etiquetaApellidoMaterno.setFont(new Font("Andale Mono",1,13));
-		etiquetaApellidoMaterno.setForeground(Color.WHITE);
-		etiquetaApellidoMaterno.setBackground(Color.RED);
-		etiquetaApellidoMaterno.setOpaque(true);
-		add(etiquetaApellidoMaterno);
-
-		campoTextoApellidoMaterno = new JTextField();
-		campoTextoApellidoMaterno.setBounds(30,350,150,25);
-		campoTextoApellidoMaterno.setFont(new Font("Andale Mono",1,14));
-		campoTextoApellidoMaterno.setForeground(Color.RED);
-		add(campoTextoApellidoMaterno);
-
-		etiquetaLugarSalida = new JLabel("Selecciona el lugar de SALIDA");
-		etiquetaLugarSalida.setBounds(220,200,250,25);
-		etiquetaLugarSalida.setFont(new Font("Andale Mono",1,13));
-		etiquetaLugarSalida.setForeground(Color.WHITE);
-		etiquetaLugarSalida.setBackground(Color.RED);
-		etiquetaLugarSalida.setOpaque(true);
-		add(etiquetaLugarSalida);
-
-		comboLugarSalida = new JComboBox();
-		comboLugarSalida.setBounds(220,230,250,25);
-		comboLugarSalida.setFont(new Font("Andale Mono",1,14));
-		comboLugarSalida.setForeground(Color.RED);
-		comboLugarSalida.addActionListener(this);
-		add(comboLugarSalida);
-
-		comboLugarSalida.addItem("");
-		comboLugarSalida.addItem("Salina Cruz");
-		comboLugarSalida.addItem("Tehuantepec");
-		comboLugarSalida.addItem("Juchitan");
-		comboLugarSalida.addItem("Huatulco");
-		comboLugarSalida.addItem("Matías Romero");
-		comboLugarSalida.addItem("Oaxaca de Juárez");
-
-		etiquetaLugarLlegada = new JLabel("Selecciona el lugar de LLEGADA");
-		etiquetaLugarLlegada.setBounds(220,260,250,25);
-		etiquetaLugarLlegada.setFont(new Font("Andale Mono",1,13));
-		etiquetaLugarLlegada.setForeground(Color.WHITE);
-		etiquetaLugarLlegada.setBackground(Color.RED);
-		etiquetaLugarLlegada.setOpaque(true);
-		add(etiquetaLugarLlegada);
-
-		comboLugarLlegada = new JComboBox();
-		comboLugarLlegada.setBounds(220,290,250,25);
-		comboLugarLlegada.setFont(new Font("Andale Mono",1,14));
-		comboLugarLlegada.setForeground(Color.RED);
-		comboLugarLlegada.addActionListener(this);
-		add(comboLugarLlegada);
-
-		comboLugarLlegada.addItem("");
-		comboLugarLlegada.addItem("Salina Cruz");
-		comboLugarLlegada.addItem("Tehuantepec");
-		comboLugarLlegada.addItem("Juchitan");
-		comboLugarLlegada.addItem("Huatulco");
-		comboLugarLlegada.addItem("Matías Romero");
-		comboLugarLlegada.addItem("Oaxaca de Juárez");
-
-		etiquetaCalendar = new JLabel("JCalendar :");
+/*		etiquetaCalendar = new JLabel("JCalendar :");
 		etiquetaCalendar.setBounds(220,320,250,25);
 		etiquetaCalendar.setFont(new Font("Andale Mono",1,13));
 		etiquetaCalendar.setForeground(Color.WHITE);
@@ -208,7 +147,7 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 		calendarioSalida.setMaxDayCharacters(1);
 		calendarioSalida.setTodayButtonVisible(true);
 		add(calendarioSalida);
-
+*/
 		etiquetaMarcaAutor = new JLabel("©2021 The TicketBus Company | Derechos Reservados by Gabriela Ita-ii");
 		etiquetaMarcaAutor.setBounds(25,580,580,25);
 		etiquetaMarcaAutor.setFont(new Font("Hack",1,11));
@@ -224,43 +163,42 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 		if(ae.getSource() == menuItemRojo) {
 			getContentPane().setBackground(Color.RED);
 			barraMenu.setBackground(Color.RED);
-			etiquetaNombres.setBackground(Color.RED);
-			etiquetaApellidoPaterno.setBackground(Color.RED);
-			etiquetaApellidoMaterno.setBackground(Color.RED);
+			botonAgregarUsuario.setBackground(Color.BLUE);
+			botonEliminarUsuario.setBackground(Color.BLUE);
+			botonEditarUsuario.setBackground(Color.BLUE);
+			botonConsultarUsuario.setBackground(Color.BLUE);
+			botonSalir.setBackground(Color.BLUE);
 			etiquetaMarcaAutor.setBackground(Color.RED);
-			etiquetaLugarSalida.setBackground(Color.RED);
-			etiquetaLugarLlegada.setBackground(Color.RED);
-			etiquetaCalendar.setBackground(Color.RED);
-
 		}
 		if(ae.getSource() == menuItemMorado) {
-			getContentPane().setBackground(new Color(102,0,153));
-			barraMenu.setBackground(new Color(102,0,153));
-			etiquetaNombres.setBackground(new Color(102,0,153));
-			etiquetaApellidoPaterno.setBackground(new Color(102,0,153));
-			etiquetaApellidoMaterno.setBackground(new Color(102,0,153));
-			etiquetaMarcaAutor.setBackground(new Color(102,0,153));
-			etiquetaLugarSalida.setBackground(new Color(102,0,153));
-			etiquetaLugarLlegada.setBackground(new Color(102,0,153));
-			etiquetaCalendar.setBackground(new Color(102,0,153));
+			getContentPane().setBackground(Color.MAGENTA);
+			barraMenu.setBackground(Color.MAGENTA);
+			botonAgregarUsuario.setBackground(Color.GREEN);
+			botonEliminarUsuario.setBackground(Color.GREEN);
+			botonEditarUsuario.setBackground(Color.GREEN);
+			botonConsultarUsuario.setBackground(Color.GREEN);
+			botonSalir.setBackground(Color.GREEN);
+			etiquetaMarcaAutor.setBackground(Color.MAGENTA);
 		}
 		if(ae.getSource() == menuItemNegro) {
 			getContentPane().setBackground(Color.BLACK);
 			barraMenu.setBackground(Color.BLACK);
-			etiquetaNombres.setBackground(Color.BLACK);
-			etiquetaApellidoPaterno.setBackground(Color.BLACK);
-			etiquetaApellidoMaterno.setBackground(Color.BLACK);
+			botonAgregarUsuario.setBackground(Color.RED);
+			botonEliminarUsuario.setBackground(Color.RED);
+			botonEditarUsuario.setBackground(Color.RED);
+			botonConsultarUsuario.setBackground(Color.RED);
+			botonSalir.setBackground(Color.RED);
 			etiquetaMarcaAutor.setBackground(Color.BLACK);
-			etiquetaLugarSalida.setBackground(Color.BLACK);
-			etiquetaLugarLlegada.setBackground(Color.BLACK);
-			etiquetaCalendar.setBackground(Color.BLACK);
 		}
-		if(ae.getSource() == menuItemNuevo) {
-			campoTextoNombres.setText("");
-			campoTextoApellidoPaterno.setText("");
-			campoTextoApellidoMaterno.setText("");
-			comboLugarSalida.setSelectedIndex(0);
-			comboLugarLlegada.setSelectedIndex(0);
+		if(ae.getSource() == menuItemPantallaPrincipal) {
+			this.dispose();
+			PantallaPrincipal objPantallaPrincipal = new PantallaPrincipal();
+			objPantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			objPantallaPrincipal.setBounds(0,0,620,620);
+//			objPantallaPrincipal.setBounds(0,0,620,560);
+			objPantallaPrincipal.setResizable(true);
+			objPantallaPrincipal.setLocationRelativeTo(null);
+			objPantallaPrincipal.setVisible(true);
 		}
 		if(ae.getSource() == menuItemSalir) {
 			if(JOptionPane.showConfirmDialog(null,"Desea SALIR del PROGRAMA","CERRAR PROGRAMA",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
@@ -304,13 +242,13 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 
-		PantallaMostrarUsuarios pantallaPrincipal = new PantallaMostrarUsuarios();
-		pantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pantallaPrincipal.setBounds(0,0,620,620);
-//		pantallaPrincipal.setBounds(0,0,620,560);
-		pantallaPrincipal.setResizable(true);
-		pantallaPrincipal.setLocationRelativeTo(null);
-		pantallaPrincipal.setVisible(true);
+		PantallaMostrarUsuarios objPantallaMostarUsuarios = new PantallaMostrarUsuarios();
+		objPantallaMostarUsuarios.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		objPantallaMostarUsuarios.setBounds(0,0,620,620);
+//		objPantallaMostarUsuarios.setBounds(0,0,620,560);
+		objPantallaMostarUsuarios.setResizable(true);
+		objPantallaMostarUsuarios.setLocationRelativeTo(null);
+		objPantallaMostarUsuarios.setVisible(true);
 
 	}
 }

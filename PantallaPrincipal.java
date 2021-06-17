@@ -9,7 +9,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 
 	private JMenuBar barraMenu;
 	private JMenu menuOpciones, menuColorFondo, menuUsuarios, menuAcerca;
-	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemNuevo, menuItemSalir, menuItemAgregarUsuario, menuItemEliminarUsuario, menuItemMostrarUsuarios, menuItemAutor;
+	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemSalir, menuItemAgregarUsuario, menuItemEliminarUsuario, menuItemMostrarUsuarios, menuItemAutor;
 	private ImageIcon imagenTicketBusNegra,imagenAutor;
 	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaApellidoPaterno, etiquetaApellidoMaterno, etiquetaLugarSalida, etiquetaLugarLlegada, etiquetaCalendar, etiquetaMarcaAutor;
 	private JTextField campoTextoNombres, campoTextoApellidoPaterno, campoTextoApellidoMaterno;
@@ -52,11 +52,6 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		menuItemNegro.addActionListener(this);
 		menuColorFondo.add(menuItemNegro);
 
-		menuItemNuevo = new JMenuItem("Nuevo");
-		menuItemNuevo.setForeground(Color.RED);
-		menuItemNuevo.addActionListener(this);
-		menuOpciones.add(menuItemNuevo);
-
 		menuItemSalir = new JMenuItem("Salir");
 		menuItemSalir.setForeground(Color.RED);
 		menuItemSalir.addActionListener(this);
@@ -80,7 +75,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		menuItemMostrarUsuarios = new JMenuItem("Mostrar Usuarios");
 		menuItemMostrarUsuarios.setForeground(Color.RED);
 		menuItemMostrarUsuarios.addActionListener(this);
-		menuUsuarios.add(menuItemMostrarUsuarios)
+		menuUsuarios.add(menuItemMostrarUsuarios);
 
 		menuAcerca = new JMenu("Acerca de");
 		menuAcerca.setFont(new Font("Andale Mono",1,14));
@@ -261,13 +256,6 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			etiquetaLugarLlegada.setBackground(Color.BLACK);
 			etiquetaCalendar.setBackground(Color.BLACK);
 		}
-		if(ae.getSource() == menuItemNuevo) {
-			campoTextoNombres.setText("");
-			campoTextoApellidoPaterno.setText("");
-			campoTextoApellidoMaterno.setText("");
-			comboLugarSalida.setSelectedIndex(0);
-			comboLugarLlegada.setSelectedIndex(0);
-		}
 		if(ae.getSource() == menuItemSalir) {
 			if(JOptionPane.showConfirmDialog(null,"Desea SALIR del PROGRAMA","CERRAR PROGRAMA",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION ) {
 				System.exit(0);
@@ -308,13 +296,13 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 
-		PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-		pantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pantallaPrincipal.setBounds(0,0,620,620);
-//		pantallaPrincipal.setBounds(0,0,620,560);
-		pantallaPrincipal.setResizable(true);
-		pantallaPrincipal.setLocationRelativeTo(null);
-		pantallaPrincipal.setVisible(true);
+		PantallaPrincipal objPantallaPrincipal = new PantallaPrincipal();
+		objPantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		objPantallaPrincipal.setBounds(0,0,620,620);
+//		objPantallaPrincipal.setBounds(0,0,620,560);
+		objPantallaPrincipal.setResizable(true);
+		objPantallaPrincipal.setLocationRelativeTo(null);
+		objPantallaPrincipal.setVisible(true);
 
 	}
 }

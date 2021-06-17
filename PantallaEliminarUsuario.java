@@ -96,12 +96,12 @@ public class PantallaEliminarUsuario extends JFrame implements ActionListener {
 				resultado = 1;
 
 				if (resultado == 1) {
-					PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
-					pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					pantallaPrincipalJFrame.setBounds(0,0,580,560);
-					pantallaPrincipalJFrame.setResizable(true);
-					pantallaPrincipalJFrame.setLocationRelativeTo(null);
-					pantallaPrincipalJFrame.setVisible(true);
+					PantallaPrincipal objPantallaPrincipal = new PantallaPrincipal();
+					objPantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					objPantallaPrincipal.setBounds(0,0,580,560);
+					objPantallaPrincipal.setResizable(true);
+					objPantallaPrincipal.setLocationRelativeTo(null);
+					objPantallaPrincipal.setVisible(true);
 as				this.dispose();
 
 				}
@@ -137,13 +137,13 @@ as				this.dispose();
 					stm.executeUpdate(sql);
 
 					dispose();
-					PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
-					pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					pantallaPrincipalJFrame.setBounds(1,0,580,560);
-					pantallaPrincipalJFrame.setResizable(true);
-					pantallaPrincipalJFrame.setLocationRelativeTo(null);	
-					pantallaPrincipalJFrame.setVisible(true);
-					pantallaPrincipalJFrame.show();
+					PantallaPrincipal objPantallaPrincipal = new PantallaPrincipal();
+					objPantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					objPantallaPrincipal.setBounds(1,0,580,560);
+					objPantallaPrincipal.setResizable(true);
+					objPantallaPrincipal.setLocationRelativeTo(null);	
+					objPantallaPrincipal.setVisible(true);
+					objPantallaPrincipal.show();
 					con.close();
 				} catch(Exception e) {
 					System.out.println(e.getMessage());
@@ -157,13 +157,13 @@ as				this.dispose();
 //				stm.executeUpdate(sql);
 //
 //				dispose();
-//				PantallaPrincipal pantallaPrincipalJFrame = new PantallaPrincipal();
-//				pantallaPrincipalJFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//				pantallaPrincipalJFrame.setBounds(1,0,580,560);
-//				pantallaPrincipalJFrame.setResizable(true);
-//				pantallaPrincipalJFrame.setLocationRelativeTo(null);	
-//				pantallaPrincipalJFrame.setVisible(true);
-//				pantallaPrincipalJFrame.show();
+//				PantallaPrincipal objPantallaPrincipal = new PantallaPrincipal();
+//				objPantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//				objPantallaPrincipal.setBounds(1,0,580,560);
+//				objPantallaPrincipal.setResizable(true);
+//				objPantallaPrincipal.setLocationRelativeTo(null);	
+//				objPantallaPrincipal.setVisible(true);
+//				objPantallaPrincipal.show();
 //				con.close();
 //
 //			} catch(Exception e) {
