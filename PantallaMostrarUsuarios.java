@@ -5,18 +5,17 @@ import java.awt.event.*;
 import java.awt.Font;
 import com.toedter.calendar.*;
 
-public class PantallaPrincipal extends JFrame implements ActionListener {
+public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 
 	private JMenuBar barraMenu;
 	private JMenu menuOpciones, menuColorFondo, menuUsuarios, menuAcerca;
-	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemNuevo, menuItemSalir, menuItemAgregarUsuario, menuItemEliminarUsuario, menuItemMostrarUsuarios, menuItemAutor;
+	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemNuevo, menuItemSalir, menuItemAgregarUsuario, menuItemEliminarUsuario, menuItemAutor;
 	private ImageIcon imagenTicketBusNegra,imagenAutor;
-	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaApellidoPaterno, etiquetaApellidoMaterno, etiquetaLugarSalida, etiquetaLugarLlegada, etiquetaCalendar, etiquetaMarcaAutor;
+	private JLabel etiquetaImagenTicketBus, etiquetaMarcaAutor;
+	private JButton botonAgregarUsuario,botonEliminarUsuario, botonEditarUsuario, botonConsultarUsuario, botonSalir;
 	private JTextField campoTextoNombres, campoTextoApellidoPaterno, campoTextoApellidoMaterno;
-	private JComboBox comboLugarSalida, comboLugarLlegada;
-	private JCalendar calendarioSalida;
 
-	public PantallaPrincipal() {
+	public PantallaMostrarUsuarios() {
 
 		setLayout(null);
 		setTitle("TicketBus APP");
@@ -76,11 +75,6 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		menuItemEliminarUsuario.setForeground(Color.RED);
 		menuItemEliminarUsuario.addActionListener(this);
 		menuUsuarios.add(menuItemEliminarUsuario);
-
-		menuItemMostrarUsuarios = new JMenuItem("Mostrar Usuarios");
-		menuItemMostrarUsuarios.setForeground(Color.RED);
-		menuItemMostrarUsuarios.addActionListener(this);
-		menuUsuarios.add(menuItemMostrarUsuarios)
 
 		menuAcerca = new JMenu("Acerca de");
 		menuAcerca.setFont(new Font("Andale Mono",1,14));
@@ -294,21 +288,23 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			objPantallaEliminarUsuario.setLocationRelativeTo(null);
 			objPantallaEliminarUsuario.setVisible(true);
 		}
-		if(ae.getSource() == menuItemMostrarUsuarios) {
-			this.dispose();
-			PantallaMostrarUsuarios objPantallaMostrarUsuarios = new PantallaMostrarUsuarios();
-			objPantallaMostrarUsuarios.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			objPantallaMostrarUsuarios.setBounds(0,0,620,620);
-			objPantallaMostrarUsuarios.setResizable(true);
-			objPantallaMostrarUsuarios.setLocationRelativeTo(null);
-			objPantallaMostrarUsuarios.setVisible(true);
+		if(ae.getSource() == botonAgregarUsuario) {
 			
+		}
+		if(ae.getSource() == botonEliminarUsuario) {
+
+		}
+		if(ae.getSource() == botonEditarUsuario) {
+
+		}
+		if(ae.getSource() == botonConsultarUsuario) {
+
 		}
 	}
 
 	public static void main(String[] args) {
 
-		PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+		PantallaMostrarUsuarios pantallaPrincipal = new PantallaMostrarUsuarios();
 		pantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pantallaPrincipal.setBounds(0,0,620,620);
 //		pantallaPrincipal.setBounds(0,0,620,560);
@@ -318,4 +314,3 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 
 	}
 }
-
