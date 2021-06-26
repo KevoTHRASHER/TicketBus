@@ -74,7 +74,7 @@ public class PantallaAgregarUsuario extends JFrame implements ActionListener {
 		botonAgregarUsuario.addActionListener(this);
 		add(botonAgregarUsuario);
 
-		etiquetaMarcaRegistrada = new JLabel("©2021 The TicketBus by Gabriela Ita-ii.");
+		etiquetaMarcaRegistrada = new JLabel("©2021 The TicketBus by Gabriela & Hugo.");
 		etiquetaMarcaRegistrada.setFont(new Font("Hack",1,12));
 		etiquetaMarcaRegistrada.setBounds(10,405,320,25);
 		etiquetaMarcaRegistrada.setForeground(Color.WHITE);
@@ -179,7 +179,7 @@ as				this.dispose();
 
 		PantallaAgregarUsuario objPantallaAgregarUsuario = new PantallaAgregarUsuario();
 		objPantallaAgregarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		objPantallaAgregarUsuario.setBounds(0,0,340,450);
+		objPantallaAgregarUsuario.setBounds(0,0,340,460);
 		objPantallaAgregarUsuario.setResizable(true);
 		objPantallaAgregarUsuario.setLocationRelativeTo(null);
 		objPantallaAgregarUsuario.setVisible(true);

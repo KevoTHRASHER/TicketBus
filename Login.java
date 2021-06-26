@@ -74,7 +74,7 @@ public class Login extends JFrame implements ActionListener {
 		botonIngresar.addActionListener(this);
 		add(botonIngresar);
 
-		etiquetaMarcaRegistrada = new JLabel("©2021 The TicketBus by Gabriela Ita-ii.");
+		etiquetaMarcaRegistrada = new JLabel("©2021 The TicketBus by Gabriela & Hugo.");
 		etiquetaMarcaRegistrada.setFont(new Font("Hack",1,12));
 		etiquetaMarcaRegistrada.setBounds(10,405,320,25);
 		etiquetaMarcaRegistrada.setForeground(Color.WHITE);
@@ -82,7 +82,7 @@ public class Login extends JFrame implements ActionListener {
 		add(etiquetaMarcaRegistrada);
 
 	}
-	
+
 /*
 	public void validarUsuario() {
 		int resultado = 0;
@@ -127,7 +127,7 @@ as				this.dispose();
 				Statement stm = con.createStatement();
 				String sql = "SELECT * FROM LoginTicket.Usuarios WHERE Usuario='"+nombreCapturado+"' and Contraseña='"+Contraseña+"'";
 				ResultSet rs = stm.executeQuery(sql);
-				
+
 				if(rs.next()) {
 					this.dispose();
 					PantallaPrincipal objPantallaPrincipal = new PantallaPrincipal();
@@ -155,7 +155,7 @@ as				this.dispose();
 
 		Login objLogin = new Login();
 		objLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		objLogin.setBounds(0,0,340,450);
+		objLogin.setBounds(0,0,340,460);
 		objLogin.setResizable(true);
 		objLogin.setLocationRelativeTo(null);
 		objLogin.setVisible(true);

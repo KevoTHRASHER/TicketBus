@@ -12,7 +12,7 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemPantallaPrincipal, menuItemSalir, menuItemAgregarUsuario, menuItemEliminarUsuario, menuItemAutor;
 	private ImageIcon imagenTicketBusNegra,imagenAutor;
 	private JLabel etiquetaImagenTicketBus, etiquetaMarcaAutor, etiquetaBienvenido;
-	private JButton botonAgregarUsuario,botonEliminarUsuario, botonEditarUsuario, botonConsultarUsuario, botonSalir;
+	private JButton botonAgregarUsuario,botonEliminarUsuario, botonEditarUsuario, botonConsultarUsuario, botonInicio, botonSalir;
 
 	public PantallaMostrarUsuarios() {
 
@@ -93,7 +93,7 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 		add(etiquetaImagenTicketBus);
 
 		etiquetaBienvenido = new JLabel("TicketBus©");
-		etiquetaBienvenido.setFont(new Font("Andale Mono",3,40));
+		etiquetaBienvenido.setFont(new Font("Andale Mono",3,36));
 		etiquetaBienvenido.setForeground(Color.BLACK);
 		etiquetaBienvenido.setBounds(250,23,400,150);
 		add(etiquetaBienvenido);
@@ -119,18 +119,25 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 		botonEditarUsuario.setBounds(30,320,150,25);
 		add(botonEditarUsuario);
 
-		botonConsultarUsuario = new JButton("Consultar");
+		botonConsultarUsuario = new JButton("CONSULTAR");
 		botonConsultarUsuario.setFont(new Font("Andale Mono",1,14));
 		botonConsultarUsuario.setForeground(Color.WHITE);
 		botonConsultarUsuario.setBackground(Color.BLUE);
-		botonConsultarUsuario.setBounds(220,200,250,25);
+		botonConsultarUsuario.setBounds(220,200,150,25);
 		add(botonConsultarUsuario);
+
+		botonInicio = new JButton("INICIO");
+		botonInicio.setFont(new Font("Andale Mono",1,14));
+		botonInicio.setForeground(Color.WHITE);
+		botonInicio.setBackground(Color.BLUE);
+		botonInicio.setBounds(220,260,150,25);
+		add(botonInicio);
 
 		botonSalir = new JButton("SALIR");
 		botonSalir.setFont(new Font("Andale Mono",1,14));
 		botonSalir.setForeground(Color.WHITE);
 		botonSalir.setBackground(Color.BLUE);
-		botonSalir.setBounds(220,260,250,25);
+		botonSalir.setBounds(220,320,150,25);
 		add(botonSalir);
 
 /*		etiquetaCalendar = new JLabel("JCalendar :");
@@ -244,8 +251,8 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 
 		PantallaMostrarUsuarios objPantallaMostarUsuarios = new PantallaMostrarUsuarios();
 		objPantallaMostarUsuarios.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		objPantallaMostarUsuarios.setBounds(0,0,620,620);
-//		objPantallaMostarUsuarios.setBounds(0,0,620,560);
+//		objPantallaMostarUsuarios.setBounds(0,0,620,620);
+		objPantallaMostarUsuarios.setBounds(0,0,500,460);
 		objPantallaMostarUsuarios.setResizable(true);
 		objPantallaMostarUsuarios.setLocationRelativeTo(null);
 		objPantallaMostarUsuarios.setVisible(true);

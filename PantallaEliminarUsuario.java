@@ -74,7 +74,7 @@ public class PantallaEliminarUsuario extends JFrame implements ActionListener {
 		botonEliminaUsuario.addActionListener(this);
 		add(botonEliminaUsuario);
 
-		etiquetaMarcaRegistrada = new JLabel("©2021 The TicketBus by Gabriela Ita-ii.");
+		etiquetaMarcaRegistrada = new JLabel("©2021 The TicketBus by Gabriela & Hugo.");
 		etiquetaMarcaRegistrada.setFont(new Font("Hack",1,12));
 		etiquetaMarcaRegistrada.setBounds(10,405,320,25);
 		etiquetaMarcaRegistrada.setForeground(Color.WHITE);
@@ -176,7 +176,7 @@ as				this.dispose();
 
 		PantallaEliminarUsuario objPantallaEliminarUsuario = new PantallaEliminarUsuario();
 		objPantallaEliminarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		objPantallaEliminarUsuario.setBounds(0,0,340,450);
+		objPantallaEliminarUsuario.setBounds(0,0,340,460);
 		objPantallaEliminarUsuario.setResizable(true);
 		objPantallaEliminarUsuario.setLocationRelativeTo(null);
 		objPantallaEliminarUsuario.setVisible(true);
