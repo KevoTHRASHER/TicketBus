@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class PantallaEliminarUsuario extends JFrame implements ActionListener {
+public class PantallaEliminarEmpleado extends JFrame implements ActionListener {
 
 	private ImageIcon imagenLogoTicketBus;
 	private JLabel etiquetaLogoTicketBus, etiquetaSistemaVentaBoletos, etiquetaCapturaNombre, etiquetaMarcaRegistrada, etiquetaContraseña;
@@ -15,7 +15,7 @@ public class PantallaEliminarUsuario extends JFrame implements ActionListener {
 	private	JPasswordField campoContraseña;
 	private JButton botonEliminaUsuario;
 
-	public PantallaEliminarUsuario() {
+	public PantallaEliminarEmpleado() {
 
 		setLayout(null);
 
@@ -174,12 +174,12 @@ as				this.dispose();
 
 	public static void main(String[] args) {
 
-		PantallaEliminarUsuario objPantallaEliminarUsuario = new PantallaEliminarUsuario();
-		objPantallaEliminarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		objPantallaEliminarUsuario.setBounds(0,0,340,460);
-		objPantallaEliminarUsuario.setResizable(true);
-		objPantallaEliminarUsuario.setLocationRelativeTo(null);
-		objPantallaEliminarUsuario.setVisible(true);
+		PantallaEliminarEmpleado objPantallaEliminarEmpleado = new PantallaEliminarEmpleado();
+		objPantallaEliminarEmpleado.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		objPantallaEliminarEmpleado.setBounds(0,0,340,460);
+		objPantallaEliminarEmpleado.setResizable(true);
+		objPantallaEliminarEmpleado.setLocationRelativeTo(null);
+		objPantallaEliminarEmpleado.setVisible(true);
 
 	}
 }

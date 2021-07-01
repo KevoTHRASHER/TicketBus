@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class PantallaAgregarUsuario extends JFrame implements ActionListener {
+public class PantallaAgregarEmpleado extends JFrame implements ActionListener {
 
 	private ImageIcon imagenLogoTicketBus;
 	private JLabel etiquetaLogoTicketBus, etiquetaSistemaVentaBoletos, etiquetaCapturaNombre, etiquetaMarcaRegistrada, etiquetaContraseña;
@@ -15,7 +15,7 @@ public class PantallaAgregarUsuario extends JFrame implements ActionListener {
 	private	JPasswordField campoContraseña;
 	private JButton botonAgregarUsuario;
 
-	public PantallaAgregarUsuario() {
+	public PantallaAgregarEmpleado() {
 
 		setLayout(null);
 
@@ -177,12 +177,12 @@ as				this.dispose();
 
 	public static void main(String[] args) {
 
-		PantallaAgregarUsuario objPantallaAgregarUsuario = new PantallaAgregarUsuario();
-		objPantallaAgregarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		objPantallaAgregarUsuario.setBounds(0,0,340,460);
-		objPantallaAgregarUsuario.setResizable(true);
-		objPantallaAgregarUsuario.setLocationRelativeTo(null);
-		objPantallaAgregarUsuario.setVisible(true);
+		PantallaAgregarEmpleado objPantallaAgregarEmpleado = new PantallaAgregarEmpleado();
+		objPantallaAgregarEmpleado.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		objPantallaAgregarEmpleado.setBounds(0,0,340,460);
+		objPantallaAgregarEmpleado.setResizable(true);
+		objPantallaAgregarEmpleado.setLocationRelativeTo(null);
+		objPantallaAgregarEmpleado.setVisible(true);
 
 	}
 }

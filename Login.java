@@ -125,7 +125,7 @@ as				this.dispose();
 				Class.forName("org.mariadb.jdbc.Driver");
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginTicket", "root", "123");
 				Statement stm = con.createStatement();
-				String sql = "SELECT * FROM LoginTicket.Usuarios WHERE Usuario='"+nombreCapturado+"' and Contraseña='"+Contraseña+"'";
+				String sql = "SELECT * FROM LoginTicket.LoginEmpleado WHERE EmailLoginEmpleado='"+nombreCapturado+"' and ContraseñaLoginEmpleado='"+Contraseña+"'";
 				ResultSet rs = stm.executeQuery(sql);
 
 				if(rs.next()) {

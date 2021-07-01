@@ -5,16 +5,16 @@ import java.awt.event.*;
 import java.awt.Font;
 import com.toedter.calendar.*;
 
-public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
+public class PantallaMostrarEmpleados extends JFrame implements ActionListener {
 
 	private JMenuBar barraMenu;
 	private JMenu menuOpciones, menuColorFondo, menuUsuarios, menuAcerca;
-	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemPantallaPrincipal, menuItemSalir, menuItemAgregarUsuario, menuItemEliminarUsuario, menuItemAutor;
+	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemPantallaPrincipal, menuItemSalir, menuItemAgregarEmpleado, menuItemEliminarEmpleado, menuItemAutor;
 	private ImageIcon imagenTicketBusNegra,imagenAutor;
 	private JLabel etiquetaImagenTicketBus, etiquetaMarcaAutor, etiquetaBienvenido;
 	private JButton botonAgregarUsuario,botonEliminarUsuario, botonEditarUsuario, botonConsultarUsuario, botonInicio, botonSalir;
 
-	public PantallaMostrarUsuarios() {
+	public PantallaMostrarEmpleados() {
 
 		setLayout(null);
 		setTitle("TicketBus APP");
@@ -60,20 +60,20 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 		menuItemSalir.addActionListener(this);
 		menuOpciones.add(menuItemSalir);
 
-		menuUsuarios = new JMenu("Usuarios");
+		menuUsuarios = new JMenu("Mostrar Empleados");
 		menuUsuarios.setFont(new Font("Andale Mono",1,14));
 		menuUsuarios.setForeground(Color.WHITE);
 		barraMenu.add(menuUsuarios);
 
-		menuItemAgregarUsuario = new JMenuItem("Agrega Usuario");
-		menuItemAgregarUsuario.setForeground(Color.RED);
-		menuItemAgregarUsuario.addActionListener(this);
-		menuUsuarios.add(menuItemAgregarUsuario);
+		menuItemAgregarEmpleado = new JMenuItem("Agregar Empleado");
+		menuItemAgregarEmpleado.setForeground(Color.RED);
+		menuItemAgregarEmpleado.addActionListener(this);
+		menuUsuarios.add(menuItemAgregarEmpleado);
 
-		menuItemEliminarUsuario = new JMenuItem("Eliminar Usuario");
-		menuItemEliminarUsuario.setForeground(Color.RED);
-		menuItemEliminarUsuario.addActionListener(this);
-		menuUsuarios.add(menuItemEliminarUsuario);
+		menuItemEliminarEmpleado = new JMenuItem("Eliminar Empleado");
+		menuItemEliminarEmpleado.setForeground(Color.RED);
+		menuItemEliminarEmpleado.addActionListener(this);
+		menuUsuarios.add(menuItemEliminarEmpleado);
 
 		menuAcerca = new JMenu("Acerca de");
 		menuAcerca.setFont(new Font("Andale Mono",1,14));
@@ -215,23 +215,23 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 		if(ae.getSource() == menuItemAutor) {
 		JOptionPane.showMessageDialog(null,"Desarrollado por \nGabriela Ita-ii","Autor",JOptionPane.INFORMATION_MESSAGE,imagenAutor);
 		}
-		if(ae.getSource() == menuItemAgregarUsuario) {
+		if(ae.getSource() == menuItemAgregarEmpleado) {
 			this.dispose();
-			PantallaAgregarUsuario objPantallaAgregarUsuario = new PantallaAgregarUsuario();
-			objPantallaAgregarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			objPantallaAgregarUsuario.setBounds(0,0,340,450);
-			objPantallaAgregarUsuario.setResizable(true);
-			objPantallaAgregarUsuario.setLocationRelativeTo(null);
-			objPantallaAgregarUsuario.setVisible(true);
+			PantallaAgregarEmpleado objPantallaAgregarEmpleado = new PantallaAgregarEmpleado();
+			objPantallaAgregarEmpleado.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			objPantallaAgregarEmpleado.setBounds(0,0,340,450);
+			objPantallaAgregarEmpleado.setResizable(true);
+			objPantallaAgregarEmpleado.setLocationRelativeTo(null);
+			objPantallaAgregarEmpleado.setVisible(true);
 		}
-		if(ae.getSource() == menuItemEliminarUsuario) {
+		if(ae.getSource() == menuItemEliminarEmpleado) {
 			this.dispose();
-			PantallaEliminarUsuario objPantallaEliminarUsuario = new PantallaEliminarUsuario();
-			objPantallaEliminarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			objPantallaEliminarUsuario.setBounds(0,0,340,450);
-			objPantallaEliminarUsuario.setResizable(true);
-			objPantallaEliminarUsuario.setLocationRelativeTo(null);
-			objPantallaEliminarUsuario.setVisible(true);
+			PantallaEliminarEmpleado objPantallaEliminarEmpleado = new PantallaEliminarEmpleado();
+			objPantallaEliminarEmpleado.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			objPantallaEliminarEmpleado.setBounds(0,0,340,450);
+			objPantallaEliminarEmpleado.setResizable(true);
+			objPantallaEliminarEmpleado.setLocationRelativeTo(null);
+			objPantallaEliminarEmpleado.setVisible(true);
 		}
 		if(ae.getSource() == botonAgregarUsuario) {
 			
@@ -249,7 +249,7 @@ public class PantallaMostrarUsuarios extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 
-		PantallaMostrarUsuarios objPantallaMostarUsuarios = new PantallaMostrarUsuarios();
+		PantallaMostrarEmpleados objPantallaMostarUsuarios = new PantallaMostrarEmpleados();
 		objPantallaMostarUsuarios.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		objPantallaMostarUsuarios.setBounds(0,0,620,620);
 		objPantallaMostarUsuarios.setBounds(0,0,500,460);
