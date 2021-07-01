@@ -17,3 +17,11 @@ javac -cp .:jcalendar-1.4.jar:mariadb-java-client-2.7.3.jar *.java
 -- Run in GNU/Linux
 
 java -cp .:jcalendar-1.4.jar:mariadb-java-client-2.7.3.jar Login
+
+-- Compile in Windows
+
+javac -cp ".;jcalendar-1.4.jar;mariadb-java-client-2.7.3.jar" *.java
+
+-- Run in Windows
+
+java -cp ".;jcalendar-1.4.jar;mariadb-java-client-2.7.3.jar" Login
