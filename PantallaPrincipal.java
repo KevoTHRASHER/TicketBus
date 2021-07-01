@@ -11,9 +11,9 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 	private JMenu menuOpciones, menuColorFondo, menuEmpleado, menuAcerca;
 	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemSalir, menuItemAgregarEmpleado, menuItemEliminarEmpleado, menuItemMostrarEmpleados, menuItemAutor;
 	private ImageIcon imagenTicketBusNegra,imagenAutor;
-	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaApellidoPaterno, etiquetaApellidoMaterno, etiquetaLugarSalida, etiquetaLugarLlegada, etiquetaCalendar, etiquetaMarcaAutor;
+	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaClaseBoleto, etiquetaNoAsiento, etiquetaLugarSalida, etiquetaLugarLlegada, etiquetaCalendar, etiquetaMarcaAutor;
 	private JTextField campoTextoNombres, campoTextoApellidoPaterno, campoTextoApellidoMaterno;
-	private JComboBox comboLugarSalida, comboLugarLlegada;
+	private JComboBox comboClaseBoleto, comboNoAsiento, comboLugarSalida, comboLugarLlegada;
 	private JCalendar calendarioSalida;
 
 	public PantallaPrincipal() {
@@ -121,33 +121,55 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		campoTextoNombres.setForeground(Color.RED);
 		add(campoTextoNombres);
 
-		etiquetaApellidoPaterno = new JLabel("Apellido Paterno :");
-		etiquetaApellidoPaterno.setBounds(30,260,150,25);
-		etiquetaApellidoPaterno.setFont(new Font("Andale Mono",1,13));
-		etiquetaApellidoPaterno.setForeground(Color.WHITE);
-		etiquetaApellidoPaterno.setBackground(Color.RED);
-		etiquetaApellidoPaterno.setOpaque(true);
-		add(etiquetaApellidoPaterno);
+		etiquetaClaseBoleto = new JLabel("Clase de Boleto");
+		etiquetaClaseBoleto.setBounds(30,260,150,25);
+		etiquetaClaseBoleto.setFont(new Font("Andale Mono",1,13));
+		etiquetaClaseBoleto.setForeground(Color.WHITE);
+		etiquetaClaseBoleto.setBackground(Color.RED);
+		etiquetaClaseBoleto.setOpaque(true);
+		add(etiquetaClaseBoleto);
 
-		campoTextoApellidoPaterno = new JTextField();
-		campoTextoApellidoPaterno.setBounds(30,290,150,25);
-		campoTextoApellidoPaterno.setFont(new Font("Andale Mono",1,14));
-		campoTextoApellidoPaterno.setForeground(Color.RED);
-		add(campoTextoApellidoPaterno);
+		comboClaseBoleto = new JComboBox();
+		comboClaseBoleto.setBounds(30,290,150,25);
+		comboClaseBoleto.setFont(new Font("Andale Mono",1,14));
+		comboClaseBoleto.setForeground(Color.RED);
+		comboClaseBoleto.addActionListener(this);
+		add(comboClaseBoleto);
 
-		etiquetaApellidoMaterno = new JLabel("Apellido Materno :");
-		etiquetaApellidoMaterno.setBounds(30,320,150,25);
-		etiquetaApellidoMaterno.setFont(new Font("Andale Mono",1,13));
-		etiquetaApellidoMaterno.setForeground(Color.WHITE);
-		etiquetaApellidoMaterno.setBackground(Color.RED);
-		etiquetaApellidoMaterno.setOpaque(true);
-		add(etiquetaApellidoMaterno);
+		comboClaseBoleto.addItem("");
+		comboClaseBoleto.addItem("Economico");
+		comboClaseBoleto.addItem("Ejecutivo");
+		comboClaseBoleto.addItem("VIP");
 
-		campoTextoApellidoMaterno = new JTextField();
-		campoTextoApellidoMaterno.setBounds(30,350,150,25);
-		campoTextoApellidoMaterno.setFont(new Font("Andale Mono",1,14));
-		campoTextoApellidoMaterno.setForeground(Color.RED);
-		add(campoTextoApellidoMaterno);
+
+		etiquetaNoAsiento = new JLabel("Numero Asiento:");
+		etiquetaNoAsiento.setBounds(30,320,150,25);
+		etiquetaNoAsiento.setFont(new Font("Andale Mono",1,13));
+		etiquetaNoAsiento.setForeground(Color.WHITE);
+		etiquetaNoAsiento.setBackground(Color.RED);
+		etiquetaNoAsiento.setOpaque(true);
+		add(etiquetaNoAsiento);
+
+		comboNoAsiento = new JComboBox();
+		comboNoAsiento.setBounds(30,350,150,25);
+		comboNoAsiento.setFont(new Font("Andale Mono",1,14));
+		comboNoAsiento.setForeground(Color.RED);
+		comboNoAsiento.addActionListener(this);
+		add(comboNoAsiento);
+
+		comboNoAsiento.addItem("");
+		comboNoAsiento.addItem("1");
+		comboNoAsiento.addItem("2");
+		comboNoAsiento.addItem("3");
+		comboNoAsiento.addItem("4");
+		comboNoAsiento.addItem("5");
+		comboNoAsiento.addItem("6");
+		comboNoAsiento.addItem("7");
+		comboNoAsiento.addItem("8");
+		comboNoAsiento.addItem("9");
+		comboNoAsiento.addItem("10");
+		comboNoAsiento.addItem("11");
+		comboNoAsiento.addItem("12");
 
 		etiquetaLugarSalida = new JLabel("Selecciona el lugar de SALIDA");
 		etiquetaLugarSalida.setBounds(220,200,250,25);
@@ -226,8 +248,8 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			getContentPane().setBackground(Color.RED);
 			barraMenu.setBackground(Color.RED);
 			etiquetaNombres.setBackground(Color.RED);
-			etiquetaApellidoPaterno.setBackground(Color.RED);
-			etiquetaApellidoMaterno.setBackground(Color.RED);
+			etiquetaClaseBoleto.setBackground(Color.RED);
+			etiquetaNoAsiento.setBackground(Color.RED);
 			etiquetaMarcaAutor.setBackground(Color.RED);
 			etiquetaLugarSalida.setBackground(Color.RED);
 			etiquetaLugarLlegada.setBackground(Color.RED);
@@ -238,8 +260,8 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			getContentPane().setBackground(new Color(102,0,153));
 			barraMenu.setBackground(new Color(102,0,153));
 			etiquetaNombres.setBackground(new Color(102,0,153));
-			etiquetaApellidoPaterno.setBackground(new Color(102,0,153));
-			etiquetaApellidoMaterno.setBackground(new Color(102,0,153));
+			etiquetaClaseBoleto.setBackground(new Color(102,0,153));
+			etiquetaNoAsiento.setBackground(new Color(102,0,153));
 			etiquetaMarcaAutor.setBackground(new Color(102,0,153));
 			etiquetaLugarSalida.setBackground(new Color(102,0,153));
 			etiquetaLugarLlegada.setBackground(new Color(102,0,153));
@@ -259,8 +281,8 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			etiquetaBienvenido.setBackground(Color.BLACK);
 			etiquetaBienvenido.setForeground(Color.WHITE);
 			etiquetaNombres.setBackground(Color.BLACK);
-			etiquetaApellidoPaterno.setBackground(Color.BLACK);
-			etiquetaApellidoMaterno.setBackground(Color.BLACK);
+			etiquetaClaseBoleto.setBackground(Color.BLACK);
+			etiquetaNoAsiento.setBackground(Color.BLACK);
 			etiquetaMarcaAutor.setBackground(Color.BLACK);
 			etiquetaLugarSalida.setBackground(Color.BLACK);
 			etiquetaLugarLlegada.setBackground(Color.BLACK);
