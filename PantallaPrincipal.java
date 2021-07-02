@@ -14,7 +14,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaClaseBoleto, etiquetaNoAsiento, etiquetaLugarSalida, etiquetaLugarLlegada, etiquetaCalendar, etiquetaMarcaAutor;
 	private JTextField campoTextoNombres, campoTextoApellidoPaterno, campoTextoApellidoMaterno;
 	private JComboBox comboClaseBoleto, comboNoAsiento, comboLugarSalida, comboLugarLlegada;
-	private JCalendar calendarioSalida;
+	private JDateChooser fechaViajeBoleto;
 
 	public PantallaPrincipal() {
 
@@ -29,7 +29,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		setJMenuBar(barraMenu);
 
 		menuOpciones = new JMenu("Opciones");
-		menuOpciones.setFont(new Font("Andale Mono",1,14));
+		menuOpciones.setFont(new Font(null,1,14));
 		menuOpciones.setForeground(Color.WHITE);
 		barraMenu.add(menuOpciones);
 
@@ -58,7 +58,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		menuOpciones.add(menuItemSalir);
 
 		menuEmpleado = new JMenu("Empleados");
-		menuEmpleado.setFont(new Font("Andale Mono",1,14));
+		menuEmpleado.setFont(new Font(null,1,14));
 		menuEmpleado.setForeground(Color.WHITE);
 		barraMenu.add(menuEmpleado);
 
@@ -78,7 +78,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		menuEmpleado.add(menuItemMostrarEmpleados);
 
 		menuAcerca = new JMenu("Acerca de");
-		menuAcerca.setFont(new Font("Andale Mono",1,14));
+		menuAcerca.setFont(new Font(null,1,14));
 		menuAcerca.setForeground(Color.WHITE);
 		barraMenu.add(menuAcerca);
 
@@ -95,21 +95,21 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		add(etiquetaImagenTicketBus);
 
 		etiquetaBienvenido = new JLabel("TicketBus©");
-		etiquetaBienvenido.setFont(new Font("Andale Mono",3,40));
+		etiquetaBienvenido.setFont(new Font(null,3,40));
 		etiquetaBienvenido.setForeground(Color.BLACK);
 		etiquetaBienvenido.setBounds(250,23,400,150);
 		add(etiquetaBienvenido);
 
-		etiquetaDatosTrabajador = new JLabel("");
-		etiquetaDatosTrabajador.setFont(new Font("Andale Mono",1,17));
-		etiquetaDatosTrabajador.setForeground(Color.WHITE);
-		etiquetaDatosTrabajador.setBackground(Color.RED);
-		etiquetaDatosTrabajador.setBounds(50,130,480,50);
-		add(etiquetaDatosTrabajador);
+//		etiquetaDatosTrabajador = new JLabel("");
+//		etiquetaDatosTrabajador.setFont(new Font(null,1,17));
+//		etiquetaDatosTrabajador.setForeground(Color.WHITE);
+//		etiquetaDatosTrabajador.setBackground(Color.RED);
+//		etiquetaDatosTrabajador.setBounds(50,130,480,50);
+//		add(etiquetaDatosTrabajador);
 
 		etiquetaNombres = new JLabel("Nombre :");
 		etiquetaNombres.setBounds(30,200,150,25);
-		etiquetaNombres.setFont(new Font("Andale Mono",1,13));
+		etiquetaNombres.setFont(new Font(null,1,13));
 		etiquetaNombres.setForeground(Color.WHITE);
 		etiquetaNombres.setBackground(Color.RED);
 		etiquetaNombres.setOpaque(true);
@@ -117,13 +117,13 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 
 		campoTextoNombres = new JTextField();
 		campoTextoNombres.setBounds(30,230,150,25);
-		campoTextoNombres.setFont(new Font("Andale Mono",1,14));
+		campoTextoNombres.setFont(new Font(null,1,14));
 		campoTextoNombres.setForeground(Color.RED);
 		add(campoTextoNombres);
 
 		etiquetaClaseBoleto = new JLabel("Clase de Boleto");
 		etiquetaClaseBoleto.setBounds(30,260,150,25);
-		etiquetaClaseBoleto.setFont(new Font("Andale Mono",1,13));
+		etiquetaClaseBoleto.setFont(new Font(null,1,13));
 		etiquetaClaseBoleto.setForeground(Color.WHITE);
 		etiquetaClaseBoleto.setBackground(Color.RED);
 		etiquetaClaseBoleto.setOpaque(true);
@@ -131,7 +131,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 
 		comboClaseBoleto = new JComboBox();
 		comboClaseBoleto.setBounds(30,290,150,25);
-		comboClaseBoleto.setFont(new Font("Andale Mono",1,14));
+		comboClaseBoleto.setFont(new Font(null,1,14));
 		comboClaseBoleto.setForeground(Color.RED);
 		comboClaseBoleto.addActionListener(this);
 		add(comboClaseBoleto);
@@ -144,7 +144,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 
 		etiquetaNoAsiento = new JLabel("Numero Asiento:");
 		etiquetaNoAsiento.setBounds(30,320,150,25);
-		etiquetaNoAsiento.setFont(new Font("Andale Mono",1,13));
+		etiquetaNoAsiento.setFont(new Font(null,1,13));
 		etiquetaNoAsiento.setForeground(Color.WHITE);
 		etiquetaNoAsiento.setBackground(Color.RED);
 		etiquetaNoAsiento.setOpaque(true);
@@ -152,7 +152,7 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 
 		comboNoAsiento = new JComboBox();
 		comboNoAsiento.setBounds(30,350,150,25);
-		comboNoAsiento.setFont(new Font("Andale Mono",1,14));
+		comboNoAsiento.setFont(new Font(null,1,14));
 		comboNoAsiento.setForeground(Color.RED);
 		comboNoAsiento.addActionListener(this);
 		add(comboNoAsiento);
@@ -171,17 +171,17 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		comboNoAsiento.addItem("11");
 		comboNoAsiento.addItem("12");
 
-		etiquetaLugarSalida = new JLabel("Selecciona el lugar de SALIDA");
-		etiquetaLugarSalida.setBounds(220,200,250,25);
-		etiquetaLugarSalida.setFont(new Font("Andale Mono",1,13));
+		etiquetaLugarSalida = new JLabel("Lugar Origen");
+		etiquetaLugarSalida.setBounds(220,200,175,25);
+		etiquetaLugarSalida.setFont(new Font(null,1,13));
 		etiquetaLugarSalida.setForeground(Color.WHITE);
 		etiquetaLugarSalida.setBackground(Color.RED);
 		etiquetaLugarSalida.setOpaque(true);
 		add(etiquetaLugarSalida);
 
 		comboLugarSalida = new JComboBox();
-		comboLugarSalida.setBounds(220,230,250,25);
-		comboLugarSalida.setFont(new Font("Andale Mono",1,14));
+		comboLugarSalida.setBounds(220,230,175,25);
+		comboLugarSalida.setFont(new Font(null,1,14));
 		comboLugarSalida.setForeground(Color.RED);
 		comboLugarSalida.addActionListener(this);
 		add(comboLugarSalida);
@@ -194,17 +194,17 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		comboLugarSalida.addItem("Matías Romero");
 		comboLugarSalida.addItem("Oaxaca de Juárez");
 
-		etiquetaLugarLlegada = new JLabel("Selecciona el lugar de LLEGADA");
-		etiquetaLugarLlegada.setBounds(220,260,250,25);
-		etiquetaLugarLlegada.setFont(new Font("Andale Mono",1,13));
+		etiquetaLugarLlegada = new JLabel("Lugar Destino");
+		etiquetaLugarLlegada.setBounds(220,260,175,25);
+		etiquetaLugarLlegada.setFont(new Font(null,1,13));
 		etiquetaLugarLlegada.setForeground(Color.WHITE);
 		etiquetaLugarLlegada.setBackground(Color.RED);
 		etiquetaLugarLlegada.setOpaque(true);
 		add(etiquetaLugarLlegada);
 
 		comboLugarLlegada = new JComboBox();
-		comboLugarLlegada.setBounds(220,290,250,25);
-		comboLugarLlegada.setFont(new Font("Andale Mono",1,14));
+		comboLugarLlegada.setBounds(220,290,175,25);
+		comboLugarLlegada.setFont(new Font(null,1,14));
 		comboLugarLlegada.setForeground(Color.RED);
 		comboLugarLlegada.addActionListener(this);
 		add(comboLugarLlegada);
@@ -217,24 +217,34 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		comboLugarLlegada.addItem("Matías Romero");
 		comboLugarLlegada.addItem("Oaxaca de Juárez");
 
-		etiquetaCalendar = new JLabel("JCalendar :");
-		etiquetaCalendar.setBounds(220,320,250,25);
-		etiquetaCalendar.setFont(new Font("Andale Mono",1,13));
+		etiquetaCalendar = new JLabel("Fecha Salida:");
+		etiquetaCalendar.setBounds(220,320,175,25);
+		etiquetaCalendar.setFont(new Font(null,Font.BOLD,12));
 		etiquetaCalendar.setForeground(Color.WHITE);
 		etiquetaCalendar.setBackground(Color.RED);
 		etiquetaCalendar.setOpaque(true);
 		add(etiquetaCalendar);
 
-		calendarioSalida = new JCalendar();
-		calendarioSalida.setBounds(220,350,250,200);
-		calendarioSalida.setWeekOfYearVisible(false);
-		calendarioSalida.setMaxDayCharacters(1);
-		calendarioSalida.setTodayButtonVisible(true);
-		add(calendarioSalida);
+		java.util.Date objFechaViajeBoleto = new java.util.Date();
+
+		fechaViajeBoleto = new JDateChooser("yyyy/MM/dd", "####/##/##", '_');
+		fechaViajeBoleto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+		fechaViajeBoleto.setBounds(220,350,175,25);
+		//	fechaViajeBoleto.setDateFormatString("dd/MM/yyyy");
+		//	fechaViajeBoleto.setDate(objFechaViajeBoleto)
+		fechaViajeBoleto.getJCalendar().setTodayButtonVisible(true);
+		fechaViajeBoleto.getJCalendar().setTodayButtonText("Hoy");
+		fechaViajeBoleto.getJCalendar().setWeekOfYearVisible(false);
+		fechaViajeBoleto.getJCalendar().setMaxDayCharacters(1);
+		fechaViajeBoleto.getJCalendar().setSundayForeground(Color.RED);
+		fechaViajeBoleto.getJCalendar().setWeekdayForeground(Color.BLUE);
+		//fechaViajeBoleto.getJCalendar().setForeground(Color.RED);
+		fechaViajeBoleto.setMinSelectableDate(objFechaViajeBoleto);
+		add(fechaViajeBoleto);
 
 		etiquetaMarcaAutor = new JLabel("©2021 The TicketBus Company | Derechos Reservados by Gabriela & Hugo");
-		etiquetaMarcaAutor.setBounds(25,580,580,25);
-		etiquetaMarcaAutor.setFont(new Font("Hack",1,11));
+		etiquetaMarcaAutor.setBounds(23,520,550,25);
+//		etiquetaMarcaAutor.setFont(new Font("Hack",1,11));
 		etiquetaMarcaAutor.setForeground(Color.WHITE);
 		etiquetaMarcaAutor.setBackground(Color.RED);
 		etiquetaMarcaAutor.setOpaque(true);
@@ -331,12 +341,11 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 
 		PantallaPrincipal objPantallaPrincipal = new PantallaPrincipal();
 		objPantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		objPantallaPrincipal.setBounds(0,0,620,620);
+		objPantallaPrincipal.setBounds(0,0,540,580);
 //		objPantallaPrincipal.setBounds(0,0,620,560);
-		objPantallaPrincipal.setResizable(true);
+	objPantallaPrincipal.setResizable(true);
 		objPantallaPrincipal.setLocationRelativeTo(null);
 		objPantallaPrincipal.setVisible(true);
 
 	}
 }
-
