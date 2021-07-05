@@ -18,6 +18,23 @@ CREATE SCHEMA IF NOT EXISTS `LoginTicket` DEFAULT CHARACTER SET utf8mb4 COLLATE 
 USE `LoginTicket` ;
 
 -- -----------------------------------------------------
+-- Table `LoginTicket`.`Boleto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `LoginTicket`.`Boleto` (
+  `NombreBoleto` VARCHAR(45) NULL DEFAULT NULL,
+  `OrigenBoleto` VARCHAR(45) NULL DEFAULT NULL,
+  `DestinoBoleto` VARCHAR(45) NULL DEFAULT NULL,
+  `AsientoBoleto` INT(11) NULL DEFAULT NULL,
+  `HoraBoleto` VARCHAR(45) NULL,
+  `FechaBoleto` VARCHAR(45) NULL DEFAULT NULL,
+  `ClaseBoleto` VARCHAR(45) NULL DEFAULT NULL,
+  `ValorBoleto` INT(11) NULL DEFAULT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+
+-- -----------------------------------------------------
 -- Table `LoginTicket`.`Cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `LoginTicket`.`Cliente` (
@@ -27,6 +44,20 @@ CREATE TABLE IF NOT EXISTS `LoginTicket`.`Cliente` (
   `Telefono` VARCHAR(13) NOT NULL,
   `Email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCliente`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+
+-- -----------------------------------------------------
+-- Table `LoginTicket`.`Destino`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `LoginTicket`.`Destino` (
+  `idDestino` INT(11) NOT NULL AUTO_INCREMENT,
+  `CiudadDestino` VARCHAR(45) NOT NULL,
+  `EstadoDestino` VARCHAR(45) NOT NULL,
+  `AndenDestino` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idDestino`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
@@ -43,20 +74,6 @@ CREATE TABLE IF NOT EXISTS `LoginTicket`.`Empleado` (
   `EdadEmpleado` INT(11) NOT NULL,
   `CargoEmpleado` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idEmpleado`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
-
--- -----------------------------------------------------
--- Table `LoginTicket`.`Destino`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `LoginTicket`.`Destino` (
-  `idDestino` INT(11) NOT NULL AUTO_INCREMENT,
-  `CiudadDestino` VARCHAR(45) NOT NULL,
-  `EstadoDestino` VARCHAR(45) NOT NULL,
-  `AndenDestino` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idDestino`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
@@ -118,47 +135,6 @@ CREATE TABLE IF NOT EXISTS `LoginTicket`.`Viaje` (
   CONSTRAINT `fk_Viaje_Intinerario1`
     FOREIGN KEY (`Intinerario_idIntinerario`)
     REFERENCES `LoginTicket`.`Intinerario` (`idIntinerario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
-
--- -----------------------------------------------------
--- Table `LoginTicket`.`Boleto`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `LoginTicket`.`Boleto` (
-  `idBoleto` INT(11) NOT NULL AUTO_INCREMENT,
-  `NombreBoleto` VARCHAR(45) NULL DEFAULT NULL,
-  `OrigenBoleto` VARCHAR(45) NULL DEFAULT NULL,
-  `DestinoBoleto` VARCHAR(45) NULL DEFAULT NULL,
-  `AsientoBoleto` INT(11) NULL DEFAULT NULL,
-  `HoraBoleto` TIME NULL DEFAULT NULL,
-  `FechaBoleto` DATE NULL DEFAULT NULL,
-  `ClaseBoleto` VARCHAR(45) NULL DEFAULT NULL,
-  `ValorBoleto` INT(11) NULL DEFAULT NULL,
-  `Viaje_Intinerario_idIntinerario` INT(11) NOT NULL,
-  `Viaje_idViaje` INT(11) NOT NULL,
-  `Empleado_idEmpleado` INT(11) NOT NULL,
-  `Cliente_idCliente` INT(11) NOT NULL,
-  PRIMARY KEY (`idBoleto`, `Viaje_Intinerario_idIntinerario`, `Viaje_idViaje`, `Empleado_idEmpleado`, `Cliente_idCliente`),
-  INDEX `fk_Boleto_Viaje1_idx` (`Viaje_Intinerario_idIntinerario` ASC, `Viaje_idViaje` ASC) VISIBLE,
-  INDEX `fk_Boleto_Empleado1_idx` (`Empleado_idEmpleado` ASC) VISIBLE,
-  INDEX `fk_Boleto_Cliente1_idx` (`Cliente_idCliente` ASC) VISIBLE,
-  CONSTRAINT `fk_Boleto_Cliente1`
-    FOREIGN KEY (`Cliente_idCliente`)
-    REFERENCES `LoginTicket`.`Cliente` (`idCliente`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Boleto_Empleado1`
-    FOREIGN KEY (`Empleado_idEmpleado`)
-    REFERENCES `LoginTicket`.`Empleado` (`idEmpleado`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Boleto_Viaje1`
-    FOREIGN KEY (`Viaje_Intinerario_idIntinerario` , `Viaje_idViaje`)
-    REFERENCES `LoginTicket`.`Viaje` (`Intinerario_idIntinerario` , `idViaje`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
