@@ -62,10 +62,10 @@ INSERT INTO Viaje VALUES
 DESCRIBE Boleto;
 SELECT * FROM LoginTicket.Boleto;
 INSERT INTO Boleto VALUES 
-(1, 'Salma Hayek Jimenez', 'Salina Cruz', 'Huatulco', 2, '21:00:00', 20210702, 'VIP', 2999),
-(2, 'Gael Garcia Bernal', 'Salina Cruz', 'Juchitan', 25, '20:30:00', 20210702, 'Ejecutivo', 1299),
-(3, 'Damian Alcazar', 'Salina Cruz', 'Tehuantepec', 17, '20:00:00', 20210702, 'Economico', 499),
-(4, 'Maria Felix', 'Tehuantepec', 'Huatulco', 1, '21:00:00', 20210702, 'VIP', 3499),
-(5, 'Adriana Barraza', 'Tehuantepec', 'Juchitan', 13, '20:30:00', 20210702, 'Ejecutivo', 999),
-(6, 'Diego Luna', 'Tehuantepec', 'Salina Cruz', 31, '20:00:00', 20210702, 'Economico', 399);
+('Salma Hayek Jimenez', 'Salina Cruz', 'Huatulco', 2, '21:00:00', 20210702, 'VIP', 2999),
+('Gael Garcia Bernal', 'Salina Cruz', 'Juchitan', 25, '20:30:00', 20210702, 'Ejecutivo', 1299),
+('Damian Alcazar', 'Salina Cruz', 'Tehuantepec', 17, '20:00:00', 20210702, 'Economico', 499),
+('Maria Felix', 'Tehuantepec', 'Huatulco', 1, '21:00:00', 20210702, 'VIP', 3499),
+('Adriana Barraza', 'Tehuantepec', 'Juchitan', 13, '20:30:00', 20210702, 'Ejecutivo', 999),
+('Diego Luna', 'Tehuantepec', 'Salina Cruz', 31, '20:00:00', 20210702, 'Economico', 399);
 DELETE FROM Boleto WHERE idBoleto = 6;

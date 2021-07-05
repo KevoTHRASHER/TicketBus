@@ -17,8 +17,8 @@ import java.util.Properties;
 public class PantallaPrincipal extends JFrame implements ActionListener {
 
 	private JMenuBar barraMenu;
-	private JMenu menuOpciones, menuColorFondo, menuEmpleado, menuAcerca;
-	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemSalir, menuItemAgregarEmpleado, menuItemEliminarEmpleado, menuItemMostrarEmpleados, menuItemAutor;
+	private JMenu menuOpciones, menuColorFondo, menuEmpleado, menuAcerca, menuBoletos;
+	private JMenuItem menuItemRojo, menuItemMorado, menuItemNegro, menuItemMostrarBoletos, menuItemSalir, menuItemAgregarEmpleado, menuItemEliminarEmpleado, menuItemMostrarEmpleados, menuItemAutor;
 	private ImageIcon imagenTicketBusNegra,imagenAutor;
 	private JLabel etiquetaImagenTicketBus, etiquetaBienvenido, etiquetaDatosTrabajador, etiquetaNombres, etiquetaClaseBoleto, etiquetaNoAsiento, etiquetaPrecio, etiquetaLugarSalida, etiquetaLugarLlegada, etiquetaCalendar, etiquetaHoraBoleto, etiquetaMarcaAutor;
 	private JTextField campoTextoNombres, campoTextoPrecio;
@@ -67,6 +67,16 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		menuItemSalir.addActionListener(this);
 		menuOpciones.add(menuItemSalir);
 
+		menuBoletos = new JMenu("Boletos");
+		menuBoletos.setFont(new Font(null,1,14));
+		menuBoletos.setForeground(Color.WHITE);
+		barraMenu.add(menuBoletos);
+
+		menuItemMostrarBoletos = new JMenuItem("Boletos Vendidos");
+		menuItemMostrarBoletos.setForeground(Color.RED);
+		menuItemMostrarBoletos.addActionListener(this);
+		menuBoletos.add(menuItemMostrarBoletos);
+
 		menuEmpleado = new JMenu("Empleados");
 		menuEmpleado.setFont(new Font(null,1,14));
 		menuEmpleado.setForeground(Color.WHITE);
@@ -110,13 +120,6 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		etiquetaBienvenido.setBounds(250,23,400,150);
 		add(etiquetaBienvenido);
 
-//		etiquetaDatosTrabajador = new JLabel("");
-//		etiquetaDatosTrabajador.setFont(new Font(null,1,17));
-//		etiquetaDatosTrabajador.setForeground(Color.WHITE);
-//		etiquetaDatosTrabajador.setBackground(Color.RED);
-//		etiquetaDatosTrabajador.setBounds(50,130,480,50);
-//		add(etiquetaDatosTrabajador);
-
 		etiquetaNombres = new JLabel("Nombre :");
 		etiquetaNombres.setBounds(30,200,150,25);
 		etiquetaNombres.setFont(new Font(null,1,13));
@@ -146,7 +149,6 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		comboClaseBoleto.addActionListener(this);
 		add(comboClaseBoleto);
 
-//		comboClaseBoleto.addItem("");
 		comboClaseBoleto.addItem("Economico");
 		comboClaseBoleto.addItem("Ejecutivo");
 		comboClaseBoleto.addItem("VIP");
@@ -167,7 +169,6 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		comboNoAsiento.addActionListener(this);
 		add(comboNoAsiento);
 
-//		comboNoAsiento.addItem("");
 		comboNoAsiento.addItem("1");
 		comboNoAsiento.addItem("2");
 		comboNoAsiento.addItem("3");
@@ -211,7 +212,6 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		comboLugarOrigen.addActionListener(this);
 		add(comboLugarOrigen);
 
-//		comboLugarOrigen.addItem("");
 		comboLugarOrigen.addItem("Salina Cruz");
 		comboLugarOrigen.addItem("Tehuantepec");
 		comboLugarOrigen.addItem("Juchitan");
@@ -235,7 +235,6 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		comboLugarDestino.addActionListener(this);
 		add(comboLugarDestino);
 
-//		comboLugarDestino.addItem("");
 		comboLugarDestino.addItem("Salina Cruz");
 		comboLugarDestino.addItem("Tehuantepec");
 		comboLugarDestino.addItem("Juchitan");
@@ -285,7 +284,6 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 		comboHoraBoleto.addActionListener(this);
 		add(comboHoraBoleto);
 
-//		comboHoraBoleto.addItem("");
 		comboHoraBoleto.addItem("20:00:00");
 		comboHoraBoleto.addItem("20:30:00");
 		comboHoraBoleto.addItem("21:00:00");
@@ -366,8 +364,15 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 				System.exit(0);
 			}
 		}
-		if (ae.getSource() == menuItemAutor) {
-			JOptionPane.showMessageDialog(null,"Desarrollado por \nGabriela Ita-ii","Autor",JOptionPane.INFORMATION_MESSAGE,imagenAutor);
+		if (ae.getSource() == menuItemMostrarBoletos) {
+			this.dispose();
+			PantallaMostrarBoletos objPantallaMostrarBoletos = new PantallaMostrarBoletos();
+			objPantallaMostrarBoletos.pack();
+			objPantallaMostrarBoletos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			objPantallaMostrarBoletos.setBounds(0,0,340,450);
+			objPantallaMostrarBoletos.setResizable(true);
+			objPantallaMostrarBoletos.setLocationRelativeTo(null);
+			objPantallaMostrarBoletos.setVisible(true);
 		}
 		if (ae.getSource() == menuItemAgregarEmpleado) {
 			this.dispose();
@@ -397,6 +402,9 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			objPantallaMostrarEmpleados.setResizable(true);
 			objPantallaMostrarEmpleados.setLocationRelativeTo(null);
 			objPantallaMostrarEmpleados.setVisible(true);
+		}
+		if (ae.getSource() == menuItemAutor) {
+			JOptionPane.showMessageDialog(null,"Desarrollado por \nGabriela Ita-ii","Autor",JOptionPane.INFORMATION_MESSAGE,imagenAutor);
 		}
 		if (ae.getSource() == botonComprar) {
 			String nombre = campoTextoNombres.getText();
@@ -442,15 +450,12 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 			}
 			else { 
 				try {
-
 					Class.forName("org.mariadb.jdbc.Driver");
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginTicket", "root", "123");
 					Statement stm = con.createStatement();
 					String sql = "INSERT INTO Boleto (NombreBoleto, OrigenBoleto, DestinoBoleto, AsientoBoleto, HoraBoleto, FechaBoleto, ClaseBoleto, ValorBoleto) VALUES ('"+nombre+"','"+lugarOrigen+"','"+lugarDestino+"','"+numeroAsiento+"','"+horaBoleto+"','"+fechaFormateadaViajeBoleto+"','"+claseBoleto+"','"+precioCampoTexto+"')";
-
 					stm.executeUpdate(sql);
 					JOptionPane.showMessageDialog(null,"Inserccion Creada con EXITO");
-
 					campoTextoNombres.setText("");
 					comboLugarOrigen.setSelectedIndex(-1);
 					comboLugarDestino.setSelectedIndex(-1);
@@ -459,20 +464,14 @@ public class PantallaPrincipal extends JFrame implements ActionListener {
 					fechaViajeBoleto.setCalendar(null);
 					comboClaseBoleto.setSelectedIndex(-1);
 					campoTextoPrecio.setText("");
-
-
-					System.out.println(nombre+" " +lugarOrigen+" "+lugarDestino+" "+numeroAsiento+" "+horaBoleto+" "+precioCampoTexto);
-
 				} catch(Exception e) {
 					System.out.println(e.getMessage());
 				}
-
 			}
 		}
 	}
 
 	public static void main(String[] args) {
-
 		PantallaPrincipal objPantallaPrincipal = new PantallaPrincipal();
 		objPantallaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		objPantallaPrincipal.setBounds(0,0,520,580);
