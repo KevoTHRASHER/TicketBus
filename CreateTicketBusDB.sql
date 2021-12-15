@@ -18,32 +18,39 @@ CREATE SCHEMA IF NOT EXISTS `LoginTicket` DEFAULT CHARACTER SET utf8mb4 COLLATE 
 USE `LoginTicket` ;
 
 -- -----------------------------------------------------
--- Table `LoginTicket`.`Boleto`
+-- Table `LoginTicket`.`Cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `LoginTicket`.`Boleto` (
-  `NombreBoleto` VARCHAR(45) NULL DEFAULT NULL,
-  `OrigenBoleto` VARCHAR(45) NULL DEFAULT NULL,
-  `DestinoBoleto` VARCHAR(45) NULL DEFAULT NULL,
-  `AsientoBoleto` INT(11) NULL DEFAULT NULL,
-  `HoraBoleto` VARCHAR(45) NULL,
-  `FechaBoleto` VARCHAR(45) NULL DEFAULT NULL,
-  `ClaseBoleto` VARCHAR(45) NULL DEFAULT NULL,
-  `ValorBoleto` INT(11) NULL DEFAULT NULL)
+CREATE TABLE IF NOT EXISTS `LoginTicket`.`Cliente` (
+  `NombreCliente` VARCHAR(45) NOT NULL,
+  `Edad` INT(11) NOT NULL,
+  `Telefono` VARCHAR(13) NOT NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`NombreCliente`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
--- Table `LoginTicket`.`Cliente`
+-- Table `LoginTicket`.`Boleto`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `LoginTicket`.`Cliente` (
-  `idCliente` INT(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `LoginTicket`.`Boleto` (
   `NombreCliente` VARCHAR(45) NOT NULL,
-  `Edad` INT(11) NOT NULL,
-  `Telefono` VARCHAR(13) NOT NULL,
-  `Email` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idCliente`))
+  `OrigenBoleto` VARCHAR(45) NULL DEFAULT NULL,
+  `DestinoBoleto` VARCHAR(45) NULL DEFAULT NULL,
+  `AsientoBoleto` INT(11) NULL DEFAULT NULL,
+  `HoraBoleto` VARCHAR(45) NULL,
+  `FechaBoleto` VARCHAR(45) NULL DEFAULT NULL,
+  `ClaseBoleto` VARCHAR(45) NULL DEFAULT NULL,
+  `ValorBoleto` INT(11) NULL DEFAULT NULL,
+  `Cliente_NombreCliente` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`NombreCliente`),
+  INDEX `fk_Boleto_Cliente1_idx` (`Cliente_NombreCliente` ASC) VISIBLE,
+  CONSTRAINT `fk_Boleto_Cliente1`
+    FOREIGN KEY (`Cliente_NombreCliente`)
+    REFERENCES `LoginTicket`.`Cliente` (`NombreCliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
@@ -64,6 +71,16 @@ COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
+-- Table `LoginTicket`.`LoginEmpleado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `LoginTicket`.`LoginEmpleado` (
+  `EmailEmpleado` VARCHAR(45) NOT NULL,
+  `ContraseñaLoginEmpleado` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`EmailEmpleado`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `LoginTicket`.`Empleado`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `LoginTicket`.`Empleado` (
@@ -73,7 +90,14 @@ CREATE TABLE IF NOT EXISTS `LoginTicket`.`Empleado` (
   `ContraseñaEmpleado` TINYBLOB NOT NULL,
   `EdadEmpleado` INT(11) NOT NULL,
   `CargoEmpleado` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idEmpleado`))
+  `LoginEmpleado_EmailEmpleado` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idEmpleado`),
+  INDEX `fk_Empleado_LoginEmpleado1_idx` (`LoginEmpleado_EmailEmpleado` ASC) VISIBLE,
+  CONSTRAINT `fk_Empleado_LoginEmpleado1`
+    FOREIGN KEY (`LoginEmpleado_EmailEmpleado`)
+    REFERENCES `LoginTicket`.`LoginEmpleado` (`EmailEmpleado`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
@@ -140,18 +164,6 @@ CREATE TABLE IF NOT EXISTS `LoginTicket`.`Viaje` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
-
-
--- -----------------------------------------------------
--- Table `LoginTicket`.`LoginEmpleado`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `LoginTicket`.`LoginEmpleado` (
-  `idLoginEmpleado` INT(5) NOT NULL AUTO_INCREMENT,
-  `EmailEmpleadoLogin` VARCHAR(45) NOT NULL,
-  `ContraseñaLoginEmpleado` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idLoginEmpleado`),
-  UNIQUE INDEX `idLoginEmpleado_UNIQUE` (`idLoginEmpleado` ASC) VISIBLE)
-ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
