@@ -39,30 +39,30 @@ public class Login extends JFrame implements ActionListener {
 		etiquetaSistemaVentaBoletos.setOpaque(true);
 		add(etiquetaSistemaVentaBoletos);
 
-		etiquetaCapturaNombre = new JLabel("Ingrese su correo :");
+		etiquetaCapturaNombre = new JLabel("Em@il");
 		etiquetaCapturaNombre.setFont(new Font("Hack",1,14));
-		etiquetaCapturaNombre.setBounds(50,230,200,25);
+		etiquetaCapturaNombre.setBounds(60,220,200,25);
 		etiquetaCapturaNombre.setOpaque(true);
 		etiquetaCapturaNombre.setBackground(Color.RED);
 		etiquetaCapturaNombre.setForeground(Color.WHITE);
 		add(etiquetaCapturaNombre);
 
 		campoTextoCapturaNombre = new JTextField();
-		campoTextoCapturaNombre.setBounds(50,260,230,25);
+		campoTextoCapturaNombre.setBounds(60,250,200,25);
 		campoTextoCapturaNombre.setFont(new Font("Hack",1,14));
 		campoTextoCapturaNombre.setForeground(Color.RED);
 		add(campoTextoCapturaNombre);
 
-		etiquetaContraseña = new JLabel("Ingresa tu contraseña :");
+		etiquetaContraseña = new JLabel("Contraseña");
 		etiquetaContraseña.setFont(new Font("Hack",1,14));
-		etiquetaContraseña.setBounds(50,300,200,25);
+		etiquetaContraseña.setBounds(60,280,200,25);
 		etiquetaContraseña.setBackground(Color.RED);
 		etiquetaContraseña.setForeground(Color.WHITE);
 		etiquetaContraseña.setOpaque(true);
 		add(etiquetaContraseña);
 
 		campoContraseña = new JPasswordField(10);
-		campoContraseña.setBounds(50,330,230,25);
+		campoContraseña.setBounds(60,310,200,25);
 		campoContraseña.setFont(new Font("Hack",1,14));
 		campoContraseña.setForeground(Color.RED);
 		add(campoContraseña);
@@ -70,17 +70,18 @@ public class Login extends JFrame implements ActionListener {
 		botonIngresar = new JButton("Ingresar");
 		botonIngresar.setForeground(Color.RED);
 		botonIngresar.setBackground(Color.WHITE);
-		botonIngresar.setBounds(100,390,120,30);
+		botonIngresar.setBounds(100,360,120,30);
 		botonIngresar.addActionListener(this);
 		add(botonIngresar);
 
-		etiquetaMarcaRegistrada = new JLabel("©2021 The TicketBus by Gabriela & Hugo.");
+		etiquetaMarcaRegistrada = new JLabel("©2021 The TicketBus by Kevo.THRASHER.");
 		etiquetaMarcaRegistrada.setFont(new Font("Hack",1,12));
-		etiquetaMarcaRegistrada.setBounds(15,440,320,25);
+		etiquetaMarcaRegistrada.setBounds(25,410,320,25);
 		etiquetaMarcaRegistrada.setForeground(Color.WHITE);
 		etiquetaMarcaRegistrada.setBackground(Color.RED);
 		add(etiquetaMarcaRegistrada);
 
+		this.pack();
 	}
 
 /*
