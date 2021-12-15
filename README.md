@@ -1,18 +1,6 @@
 #	Ticket Bus App	
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-![alt text](https://raw.githubusercontent.com/KevoTHRASHER/TicketBus/main/img/Screenshot.png?raw=true)
-=======
-![alt text](https://raw.githubusercontent.com/KevoTHRASHER/blob/main/images/Screenshot.png?raw=true)
->>>>>>> develop
-=======
-![alt text](https://raw.githubusercontent.com/KevoTHRASHER/main/images/Screenshot.png?raw=true)
->>>>>>> develop
-=======
 ![alt text](https://raw.githubusercontent.com/KevoTHRASHER/TicketBus/main/images/Screenshot.png?raw=true)
->>>>>>> develop
 
 CRUD App write in JAVA Language with SQL in MariaDB.
 
