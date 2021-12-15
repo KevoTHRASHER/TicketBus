@@ -1,6 +1,6 @@
 #	Ticket Bus App	
 
-![alt text](https://raw.githubusercontent.com/KevoTHRASHER/TicketBus/blob/main/images/screenshot.png?raw=true)
+![alt text](https://raw.githubusercontent.com/KevoTHRASHER/TicketBus/main/images/screenshot.png?raw=true)
 
 CRUD App write in JAVA Language with SQL in MariaDB.
 
